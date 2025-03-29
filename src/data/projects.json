@@ -1,0 +1,68 @@
+[
+  {
+    "index": 1,
+    "projectsImage": "src/assets/images/projectsGilded.png",
+    "title": "The Gilded Plate",
+    "description": "Website design with online reservation system for a fine dining restaurant",
+    "techStack": "HTML, CSS, JavaScript",
+    "purpose": "To showcase a restaurant's menu and services.",
+    "stackExplanation": "Used HTML for structure, CSS for styling, and JavaScript for interactivity.",
+    "link": "/project-detail/1",
+    "liveLink": "https://example.com/the-gilded-plate"
+  },
+  {
+    "index": 2,
+    "projectsImage": "path/to/image2.jpg",
+    "title": "Salco Global Solutions",
+    "description": "Customer requested a redesign of their original website which was built in 2012",
+    "techStack": "React, Framer Motion",
+    "purpose": "This is a redesign of an old company website",
+    "stackExplanation": "Used React for the frontend, Node.js for the backend, and MongoDB for the database.",
+    "link": "/project-detail/2",
+    "liveLink": "https://salco.netlify.app/"
+  },
+  {
+    "index": 3,
+    "projectsImage": "src/assets/images/projectsPizzeria.png",
+    "title": "Pizzeria Rustica",
+    "description": "Website and online ordering system for a specialty pizzeria",
+    "techStack": "Next.js, API, Stripe Authorization, Vercel",
+    "purpose": "After learning React, I wanted to build a full-stack application. I chose a food ordering application to experiment with user authentication, database management, and payment processing.",
+    "stackExplanation": "Used Vue.js for the frontend and Firebase for the backend and database.",
+    "link": "/project-detail/3",
+    "liveLink": "https://pizzeria-rustica.vercel.app/"
+  },
+  {
+    "index": 4,
+    "projectsImage": "src/assets/images/projects-bayouside.png",
+    "title": "Bayouside Tennis",
+    "description": "Customer requested a website design with online tennis court booking, and a dashboard to manage bookings and payments for the owner as well as coaches",
+    "techStack": "Next.js, NextAuth, Bcrypt, PostgreSQL",
+    "purpose": "To manage tennis club memberships and events.",
+    "stackExplanation": "Used Next.js for the frontend so that the website is SEO-friendly.",
+    "link": "/project-detail/4",
+    "liveLink": "https://bayouside-tennis.netlify.app/"
+  },
+  {
+    "index": 5,
+    "projectsImage": "path/to/image5.jpg",
+    "title": "Tash Mode Online Shopping",
+    "description": "Customer requested design of website with an online shopping platform",
+    "techStack": "Next.js, API, MongoDB",
+    "purpose": "To provide an online shopping platform.",
+    "stackExplanation": "Used React and Redux for the frontend, Node.js for the backend, and MongoDB for the database.",
+    "link": "/project-detail/5",
+    "liveLink": "https://example.com/tash-mode-online-shopping"
+  },
+  {
+    "index": 6,
+    "projectsImage": "path/to/image6.jpg",
+    "title": "Stay Healthy",
+    "description": "Website portal for patients in rural areas to connect with doctors",
+    "techStack": "React, Node.js, PostgreSQL",
+    "purpose": "To connect patients in rural areas with doctors.",
+    "stackExplanation": "Used React for the frontend, Node.js for the backend, and PostgreSQL for the database.",
+    "link": "/project-detail/6",
+    "liveLink": "https://example.com/stay-healthy"
+  }
+]
