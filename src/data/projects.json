@@ -63,6 +63,6 @@
     "purpose": "To connect patients in rural areas with doctors.",
     "stackExplanation": "Used React for the frontend, Node.js for the backend, and PostgreSQL for the database.",
     "link": "/project-detail/6",
-    "liveLink": "https://example.com/stay-healthy"
+    "liveLink": "https://stayhealthy-react.netlify.app/"
   }
 ]
