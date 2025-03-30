@@ -61,12 +61,12 @@ export const projectDetails = [
     liveURL: "https://pizzeria-rustica.vercel.app/",
     githubURL: "https://github.com/dataMichelle/pizzeria-rustica",
     goal: [
-      "To create a simple and elegant website for a pizza restaurant, allowing users to order online.",
+      "Pizzeria Rustica’s website was created to offer a straightforward, elegant online hub for a pizza restaurant, with a focus on enabling customers to place orders seamlessly. The goal was to provide a functional and attractive platform that simplifies the ordering process.",
+      "Developed with simplicity in mind, the site ensures users can quickly navigate the menu and order their favorite pizzas from any device. It reflects the charm of a rustic pizzeria while delivering modern convenience.",
     ],
     process: [
-      "Designed the layout using HTML and CSS.",
-      "Added interactivity with JavaScript for the online ordering system.",
-      "Ensured the website is responsive and works well on all devices.",
+      "I designed the layout using HTML and CSS, establishing a clean and responsive structure for the restaurant’s digital presence. JavaScript was added to bring interactivity to the online ordering system, allowing users to customize and submit orders effortlessly.",
+      "The development process prioritized mobile-friendliness, ensuring the site performs flawlessly across all screen sizes. Testing and refinements guaranteed a reliable, user-centric experience for pizza lovers.",
     ],
     webStack: ["HTML", "CSS", "JavaScript"],
     additionalImages: [
@@ -84,12 +84,12 @@ export const projectDetails = [
     liveURL: "https://stayhealthy-react.netlify.app/",
     githubURL: "https://github.com/dataMichelle/stayhealthy-react",
     goal: [
-      "To create a modern and responsive website for a restaurant, allowing users to view the menu, make reservations, and find the location easily.",
+      "The Stay Healthy website, built for an online course project, aimed to serve rural patients by providing accessible medical information and a system for booking online doctor appointments. The goal was to create a practical, user-friendly platform that bridges healthcare gaps in underserved areas.",
+      "Developed from scratch, the site offers a clear, responsive design to ensure vital health resources and telehealth options are within reach for its audience. It focuses on simplicity and functionality to support rural communities effectively.",
     ],
     process: [
-      "Designed the UI/UX using Figma to ensure a clean and user-friendly interface.",
-      "Developed the frontend using React and styled it with Tailwind CSS.",
-      "Integrated a reservation system using Next.js API routes.",
+      "I started by planning a straightforward layout, prioritizing ease of use for users seeking medical content and appointments. The frontend was crafted with React and styled using Tailwind CSS, delivering a clean and responsive interface.",
+      "Next.js enabled efficient routing and SEO optimization, while a custom booking system was integrated to facilitate online doctor consultations. The process emphasized accessibility and performance, tailoring the site to meet the needs of rural patients.",
     ],
     webStack: ["React", "Next.js", "Tailwind CSS", "Zustand"],
     additionalImages: [

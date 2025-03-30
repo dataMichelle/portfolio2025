@@ -7,7 +7,7 @@ export const projectsData = [
   {
     title: "The Gilded Plate",
     description:
-      "Restaurant website showcasing the menu, location, and online reservation system.",
+      "A sleek restaurant site featuring menu highlights, seamless reservations, and easy location access.",
     tags: ["React", "Next.js", "JavaScript", "Tailwind CSS"],
     imageURL: gildedImg,
     projectURL: "gilded-plate",
@@ -17,7 +17,7 @@ export const projectsData = [
   {
     title: "Bayouside Tennis",
     description:
-      "Tennis court rental website with booking, login and a dashboard for owner and coaches.",
+      "A backyard tennis rental platform with secure booking, user login, and an owner-coach dashboard.",
     tags: ["React", "JavaScript", "MongoDB"],
     imageURL: bayousideImg,
     projectURL: "bayouside-tennis",
@@ -26,7 +26,8 @@ export const projectsData = [
   },
   {
     title: "Pizzeria Rustica",
-    description: "A pizza restaurant website with an online ordering system.",
+    description:
+      "A rustic pizza site with a streamlined online ordering experience.",
     tags: ["HTML", "CSS", "JavaScript"],
     imageURL: pizzeriaImg,
     projectURL: "pizzeria-rustica",
@@ -35,7 +36,8 @@ export const projectsData = [
   },
   {
     title: "Stay Healthy",
-    description: "A health and wellness blog with articles and tips.",
+    description:
+      "A telehealth portal connecting rural patients to medical resources and virtual appointments.",
     tags: ["HTML", "CSS", "JavaScript"],
     imageURL: stayHealthyImg,
     projectURL: "stay-healthy",
