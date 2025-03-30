@@ -1,14 +1,14 @@
 import React from "react";
-import ProjectDetail from "./ProjectDetail";
+import { Link } from "react-router-dom"; // Import Link from React Router
 
 const Project = ({
   title,
   description,
   tags,
   imageURL,
+  projectURL,
   liveURL,
   githubURL,
-  children,
 }) => {
   return (
     <section className="group bg-gray-100 max-w-[42rem] border-black/5 overflow-hidden sm:pr-8 relative h-[22rem] w-[40rem] mb-3 sm:mb-8 last:mb-0 hover:bg-gray-200 transition flex flex-col">
@@ -44,12 +44,12 @@ const Project = ({
           >
             GitHub Repo
           </a>
-          <a
-            href="#"
+          <Link
+            to={`/project/${projectURL}`} // Link to the ProjectDetail page
             className="text-orange-500 dark:text-orange-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
             Project Details
-          </a>
+          </Link>
         </div>
       </div>
       <img
@@ -68,8 +68,6 @@ const Project = ({
     group-even:hover:rotate-2"
         quality={95}
       />
-
-      {children}
     </section>
   );
 };

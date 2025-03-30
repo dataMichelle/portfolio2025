@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from React Router
 
 const Home = () => {
   return (
@@ -16,11 +17,12 @@ const Home = () => {
           skills to bring ideas to life through code.
         </p>
 
-        <a href="/projects">
-          <a className="inline-block px-6 py-3 bg-primary-600 text-white font-medium text-lg rounded-lg shadow-md hover:bg-primary-500 dark:bg-primary-700 dark:hover:bg-primary-600 transition-colors">
-            View My Work
-          </a>
-        </a>
+        <Link
+          to="/projects"
+          className="inline-block px-6 py-3 bg-primary-600 text-white font-medium text-lg rounded-lg shadow-md hover:bg-primary-500 dark:bg-primary-700 dark:hover:bg-primary-600 transition-colors"
+        >
+          View My Work
+        </Link>
       </div>
 
       {/* Portrait Section */}
