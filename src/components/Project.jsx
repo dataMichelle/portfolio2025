@@ -12,7 +12,7 @@ const Project = ({
 }) => {
   return (
     <section className="group bg-gray-100 max-w-[42rem] border-black/5 overflow-hidden sm:pr-8 relative h-[22rem] w-[40rem] mb-3 sm:mb-8 last:mb-0 hover:bg-gray-200 transition flex flex-col">
-      <div className="flex flex-col justify-between h-full pt-4 pb-5 px-5 sm:pl-10 sm:pr-2 sm:max-w-[50%] group-even:sm:pl-2 group-even:ml-[18rem]">
+      <div className="flex flex-col justify-between h-full pt-4 pb-5 px-5 sm:pl-10 sm:pr-2 sm:max-w-[50%] group-even:sm:pl-8 group-even:ml-[18rem]">
         <h2 className="text-2xl font-semibold leading-relaxed">{title}</h2>
         <p className="mt-2 text-gray-700 flex-grow line-clamp-3">
           {description}
