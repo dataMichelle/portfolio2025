@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { projectsData } from "../data/projectsData.js";
+import { projectDetails } from "../data/projectDetails"; // Import the data file directly
 
 const ProjectDetail = () => {
   const { projectURL } = useParams();
-  const project = projectsData.find((p) => p.projectURL === projectURL);
+  const project = projectDetails.find((p) => p.projectURL === projectURL); // Find the project by URL
 
   if (!project) {
     return <p className="text-center text-red-500">Project not found!</p>;
@@ -17,23 +17,29 @@ const ProjectDetail = () => {
         <h2 className="text-4xl font-bold text-primary-700 dark:text-primary-300 text-center mb-4">
           {project.title}
         </h2>
-        <p className="text-lg text-gray-700 dark:text-gray-300 text-center mb-8">
-          {project.description}
-        </p>
       </div>
 
-      {/* Tags and Links Section */}
+      {/* Image and Description Section */}
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center">
+        {/* Image Section */}
+        <div className="flex-shrink-0 w-full md:w-1/2">
+          <img
+            src={project.imageURL}
+            alt={project.title}
+            className="w-full h-auto object-cover rounded-lg shadow-lg"
+          />
+        </div>
+
+        {/* Description Section */}
+        <div className="flex-grow">
+          <p className="text-lg text-gray-700 dark:text-gray-300">
+            {project.description}
+          </p>
+        </div>
+      </div>
+
+      {/* Links Section */}
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
-        <ul className="tags flex flex-wrap gap-2 justify-center">
-          {project.tags.map((tag, index) => (
-            <li
-              key={index}
-              className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
         <div className="flex gap-4">
           <a
             href={project.liveURL}
@@ -54,42 +60,12 @@ const ProjectDetail = () => {
         </div>
       </div>
 
-      {/* Project Image Section */}
-      <div className="max-w-6xl mx-auto">
-        <img
-          src={project.imageURL}
-          alt={project.title}
-          className="w-full h-auto object-cover rounded-lg shadow-lg"
-        />
-      </div>
-
       {/* Project Goal Section */}
       <div className="max-w-6xl mx-auto">
         <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
           Project Goal
         </h3>
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <p className="text-gray-700 dark:text-gray-300">
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </div>
-
-      {/* Web Stack Section */}
-      <div className="max-w-6xl mx-auto">
-        <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
-          Web Stack
-        </h3>
-        <div className="flex flex-wrap gap-4">
-          <div className="w-1/3 h-32 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
-          <div className="w-1/3 h-32 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
-          <div className="w-1/3 h-32 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
-          <div className="w-1/3 h-32 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
-          <div className="w-1/3 h-32 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
-        </div>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">{project.goal}</p>
       </div>
 
       {/* Process Section */}
@@ -97,14 +73,45 @@ const ProjectDetail = () => {
         <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
           Process
         </h3>
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <p className="text-gray-700 dark:text-gray-300">
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
-        </p>
+        {project.process?.map((step, index) => (
+          <p key={index} className="text-gray-700 dark:text-gray-300 mb-4">
+            {step}
+          </p>
+        ))}
+      </div>
+
+      {/* Web Stack Section */}
+      <div className="max-w-6xl mx-auto">
+        <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
+          Web Stack
+        </h3>
+        <ul className="flex flex-wrap gap-4">
+          {project.webStack?.map((tech, index) => (
+            <li
+              key={index}
+              className="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg"
+            >
+              {tech}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Additional Images Section */}
+      <div className="max-w-6xl mx-auto">
+        <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
+          Additional Images
+        </h3>
+        <div className="flex flex-wrap gap-4">
+          {project.additionalImages?.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Additional ${project.title} ${index + 1}`}
+              className="w-1/3 h-auto object-cover rounded-lg shadow-lg"
+            />
+          ))}
+        </div>
       </div>
     </main>
   );
