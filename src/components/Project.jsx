@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { Link } from "react-router-dom"; // Import Link from React Router
 
 const Project = ({
@@ -10,6 +11,11 @@ const Project = ({
   liveURL,
   githubURL,
 }) => {
+=======
+import { Link } from "react-router-dom";
+
+const Project = ({ title, description, tags, imageURL, projectURL }) => {
+>>>>>>> dev
   return (
     <section className="group bg-gray-100 max-w-[42rem] border-black/5 overflow-hidden sm:pr-8 relative h-[22rem] w-[40rem] mb-3 sm:mb-8 last:mb-0 hover:bg-gray-200 transition flex flex-col">
       <div className="flex flex-col justify-between h-full pt-4 pb-5 px-5 sm:pl-10 sm:pr-2 sm:max-w-[50%] even-pl-8 group-even:ml-[18rem]">
@@ -28,6 +34,7 @@ const Project = ({
           ))}
         </ul>
         <div className="flex flex-wrap gap-2 mt-auto pt-4 pb-6">
+<<<<<<< HEAD
           <a
             href={liveURL}
             className="text-yellow-500 dark:text-yellow-300 inline-block hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors mr-4"
@@ -46,6 +53,10 @@ const Project = ({
           </a>
           <Link
             to={`/project/${projectURL}`} // Link to the ProjectDetail page
+=======
+          <Link
+            to={`/project/${projectURL}`}
+>>>>>>> dev
             className="text-orange-500 dark:text-orange-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
             Project Details

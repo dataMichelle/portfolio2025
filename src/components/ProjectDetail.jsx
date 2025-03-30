@@ -1,6 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+<<<<<<< HEAD
 import { projectDetails } from "../data/project-details"; // Import the data file directly
+=======
+import { projectDetails } from "../data/projectDetails"; // Import the data file directly
+>>>>>>> dev
 
 const ProjectDetail = () => {
   const { projectURL } = useParams();
@@ -65,6 +69,7 @@ const ProjectDetail = () => {
         <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
           Project Goal
         </h3>
+<<<<<<< HEAD
         <div className="text-gray-700 dark:text-gray-300 mb-4">
           {project.goal.map((paragraph, index) => (
             <p key={index} className="text-gray-700 dark:text-gray-300 mb-4">
@@ -72,6 +77,9 @@ const ProjectDetail = () => {
             </p>
           ))}
         </div>
+=======
+        <p className="text-gray-700 dark:text-gray-300 mb-4">{project.goal}</p>
+>>>>>>> dev
       </div>
 
       {/* Process Section */}
@@ -91,6 +99,7 @@ const ProjectDetail = () => {
         <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
           Web Stack
         </h3>
+<<<<<<< HEAD
         <ul className="tags flex flex-wrap gap-2">
           {project.webStack.map((tag, index) => (
             <li
@@ -98,6 +107,15 @@ const ProjectDetail = () => {
               key={index}
             >
               {tag}
+=======
+        <ul className="flex flex-wrap gap-4">
+          {project.webStack?.map((tech, index) => (
+            <li
+              key={index}
+              className="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg"
+            >
+              {tech}
+>>>>>>> dev
             </li>
           ))}
         </ul>

@@ -8,6 +8,7 @@ const Projects = () => {
       <h1 className="text-4xl font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">
         My Projects
       </h1>
+
       <section>
         <div className="flex flex-col gap-8 items-center">
           {projectsData.map((project, index) => (
@@ -18,8 +19,6 @@ const Projects = () => {
               tags={project.tags}
               imageURL={project.imageURL}
               projectURL={project.projectURL}
-              liveURL={project.liveURL}
-              githubURL={project.githubURL}
             />
           ))}
         </div>
