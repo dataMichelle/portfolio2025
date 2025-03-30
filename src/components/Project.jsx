@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
 
 const Project = ({
   title,
@@ -12,7 +12,7 @@ const Project = ({
 }) => {
   return (
     <section className="group bg-gray-100 max-w-[42rem] border-black/5 overflow-hidden sm:pr-8 relative h-[22rem] w-[40rem] mb-3 sm:mb-8 last:mb-0 hover:bg-gray-200 transition flex flex-col">
-      <div className="flex flex-col justify-between h-full pt-4 pb-5 px-5 sm:pl-10 sm:pr-2 sm:max-w-[50%] even-pl-8 group-even:ml-[18rem]">
+      <div className="flex flex-col justify-between h-full pt-4 pb-5 px-5 sm:pl-10 sm:pr-2 sm:max-w-[50%] group-even:sm:pl-2 group-even:ml-[18rem]">
         <h2 className="text-2xl font-semibold leading-relaxed">{title}</h2>
         <p className="mt-2 text-gray-700 flex-grow line-clamp-3">
           {description}
@@ -45,7 +45,7 @@ const Project = ({
             GitHub Repo
           </a>
           <Link
-            to={`/project/${projectURL}`} // Link to the ProjectDetail page
+            to={`/project/${projectURL}`}
             className="text-orange-500 dark:text-orange-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
             Project Details
@@ -56,16 +56,15 @@ const Project = ({
         src={imageURL}
         alt={title}
         className="absolute top-8 -right-40 w-[28.25rem] h-[20rem] object-cover rounded-t-lg shadow-2xl transition  
-    group-hover:-translate-x-3    
-    group-hover:scale-[1.04] 
-    group-hover:translate-y-3 
-    group-hover:-rotate-2 
-    
-    group-even:right-[initial]
-    group-even:-left-40
-    group-even:hover:translate-x-3 
-    group-even:hover:translate-y-3 
-    group-even:hover:rotate-2"
+          group-hover:-translate-x-3    
+          group-hover:scale-[1.04] 
+          group-hover:translate-y-3 
+          group-hover:-rotate-2 
+          group-even:right-[initial]
+          group-even:-left-40
+          group-even:group-hover:translate-x-3 
+          group-even:group-hover:translate-y-3 
+          group-even:group-hover:rotate-2"
         quality={95}
       />
     </section>
