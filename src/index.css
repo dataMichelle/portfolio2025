@@ -6,59 +6,60 @@
   --font-nunito: "Nunito", sans-serif;
 
   --color-primary-900: #19216c;
-  --color-primary-800: #2d3a8c;
   --color-primary-700: #35469c;
-  --color-primary-600: #4055a8;
   --color-primary-500: #4c63b6;
-  --color-primary-400: #647acb;
   --color-primary-300: #7b93db;
-  --color-primary-200: #98aeeb;
   --color-primary-100: #bed0f7;
   --color-primary-50: #e0e8f9;
 
   --color-neutrals-900: #1f2933;
-  --color-neutrals-800: #323f4b;
   --color-neutrals-700: #3e4c59;
-  --color-neutrals-600: #52606d;
   --color-neutrals-500: #616e7c;
-  --color-neutrals-400: #7b8794;
   --color-neutrals-300: #9aa5b1;
-  --color-neutrals-200: #cbd2d9;
   --color-neutrals-100: #e4e7eb;
   --color-neutrals-50: #f5f7fa;
 
   --color-yellow-900: #8d2b0b;
-  --color-yellow-800: #b44d12;
   --color-yellow-700: #cb6e17;
-  --color-yellow-600: #de911d;
   --color-yellow-500: #f0b429;
-  --color-yellow-400: #f7c948;
   --color-yellow-300: #fadb5f;
-  --color-yellow-200: #fce588;
   --color-yellow-100: #fff3c4;
   --color-yellow-50: #fffbea;
 }
 
-/* Dark mode */
-
+/* Light and Dark Mode Variables */
 :root {
-  --bg-color: white;
+  --bg-color: linear-gradient(
+    135deg,
+    var(--color-neutrals-50) 0%,
+    /* Light gray at top-left */ var(--color-primary-100) 50%,
+    /* Very light blue in the center */ var(--color-yellow-50) 100%
+      /* Pale yellow at bottom-right */
+  );
   --text-color: black;
 }
 
 .dark {
-  --bg-color: #1a202c; /* dark:bg-gray-900 */
+  --bg-color: linear-gradient(
+    135deg,
+    var(--color-neutrals-700) 0%,
+    /* Medium-dark gray at top-left */ var(--color-primary-700) 50%,
+    /* Softer dark blue in the center */ var(--color-yellow-700) 100%
+      /* Muted amber at bottom-right */
+  );
   --text-color: white;
 }
 
+/* Apply Background and Text Colors */
 body {
-  background-color: var(--bg-color);
+  background: var(--bg-color);
   color: var(--text-color);
+  min-height: 100vh; /* Ensures gradient covers full height */
 }
 
 /* Ensure other elements use the custom properties */
 .bg-white {
-  background-color: var(--bg-color);
+  background: var(--bg-color);
 }
 
 .text-black {

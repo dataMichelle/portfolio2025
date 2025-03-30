@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.png";
 
 const Navbar = ({ toggleDarkMode, isDarkMode }) => {
   return (
-    <nav className="flex justify-between items-center px-6 py-4 bg-primary-50 dark:bg-neutrals-900 sticky top-0 z-20 shadow-lg transition-all duration-300">
+    <nav className="flex justify-between items-center px-6 py-4 dark:bg-neutrals-900 sticky top-0 z-20 shadow-lg transition-all duration-300">
       <div>
         <Link to="/" className="flex items-center">
           <img src={logo} alt="Logo" className="h-8" />
