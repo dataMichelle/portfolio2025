@@ -2,7 +2,7 @@ import gildedImg from "../assets/images/projectsGilded.png";
 import bayousideImg from "../assets/images/projects-bayouside.png";
 import pizzeriaImg from "../assets/images/projectsPizzeria.png";
 import stayHealthyImg from "../assets/images/placeholder.png";
-import gildedMenuImg from "../assets/images/gilded-menu.png";
+import gildedReservation from "../assets/images/gildedReservation.png";
 
 export const projectDetails = [
   {
@@ -15,15 +15,25 @@ export const projectDetails = [
     liveURL: "https://gildedplate-seven.vercel.app/",
     githubURL: "https://github.com/dataMichelle/gildedplate",
     goal: [
-      "To create a modern and responsive website for a restaurant, allowing users to view the menu, make reservations, and find the location easily.",
+      "The goal was to create a modern and responsive website for a restaurant, allowing users to view the menu, make reservations, and find the location easily. I wanted the website to look good on mobile devices and be user-friendly.",
     ],
     process: [
-      "Designed the UI/UX using Figma to ensure a clean and user-friendly interface.",
-      "Developed the frontend using React and styled it with Tailwind CSS.",
-      "Integrated a reservation system using Next.js API routes.",
+      "The Gilded Plate website was designed and developed from the ground up. I used Next.js for server-side rendering, and Tailwind CSS for styling. The site features a clean and modern design",
+      "From initial wireframes to the final deployment, the project followed a structured workflow. This included designing the user interface, implementing core features, and testing the application across various devices and browsers.",
+      "The menu was built using data stored in a JSON file, allowing for easy updates and maintenance. The hardest part was ensuring the reservation system worked seamlessly, allowing users to select a date and time, and receive a confirmation email. I wanted the time slots to be dynamic, so I created a custom function to check for available times based on the restaurant's schedule.",
+      "I also focused on optimizing the site for performance and SEO, ensuring fast load times and good visibility in search engines. The final product is a fully functional restaurant website that meets the needs of both the business and its customers.",
     ],
-    webStack: ["React", "Next.js", "Tailwind CSS", "Zustand"],
-    additionalImages: [gildedMenuImg],
+    webStack: ["React", "Next.js", "Tailwind CSS"],
+    additionalImages: [
+      {
+        id: 1,
+        url: gildedReservation,
+        caption: "The reservation system interface shows available time slots.",
+        alt: "Screenshot of The Gilded Plate menu page.",
+        width: "800px",
+        height: "600px",
+      },
+    ],
   },
   {
     projectURL: "bayouside-tennis",
@@ -44,9 +54,30 @@ export const projectDetails = [
     ],
     webStack: ["React", "Node.js", "MongoDB", "Express"],
     additionalImages: [
-      "/assets/images/bayouside-1.png",
-      "/assets/images/bayouside-2.png",
-      "/assets/images/bayouside-3.png",
+      {
+        id: 1,
+        url: "/assets/images/bayouside-1.png",
+        caption: "Homepage of Bayouside Tennis showcasing the booking system.",
+        alt: "Screenshot of Bayouside Tennis homepage with booking system.",
+        width: "900px",
+        height: "500px",
+      },
+      {
+        id: 2,
+        url: "/assets/images/bayouside-2.png",
+        caption: "Dashboard interface for managing schedules and payments.",
+        alt: "Screenshot of Bayouside Tennis dashboard interface.",
+        width: "800px",
+        height: "600px",
+      },
+      {
+        id: 3,
+        url: "/assets/images/bayouside-3.png",
+        caption: "Mobile-friendly design of the tennis court rental website.",
+        alt: "Screenshot of Bayouside Tennis mobile-friendly design.",
+        width: "700px",
+        height: "400px",
+      },
     ],
   },
   {
@@ -67,9 +98,30 @@ export const projectDetails = [
     ],
     webStack: ["HTML", "CSS", "JavaScript"],
     additionalImages: [
-      "/assets/images/pizzeria-1.png",
-      "/assets/images/pizzeria-2.png",
-      "/assets/images/pizzeria-3.png",
+      {
+        id: 1,
+        url: "/assets/images/pizzeria-1.png",
+        caption: "Homepage of Pizzeria Rustica showcasing the menu.",
+        alt: "Screenshot of Pizzeria Rustica homepage with menu.",
+        width: "800px",
+        height: "600px",
+      },
+      {
+        id: 2,
+        url: "/assets/images/pizzeria-2.png",
+        caption: "Online ordering system interface.",
+        alt: "Screenshot of Pizzeria Rustica online ordering system.",
+        width: "700px",
+        height: "500px",
+      },
+      {
+        id: 3,
+        url: "/assets/images/pizzeria-3.png",
+        caption: "Mobile-friendly design of the pizza restaurant website.",
+        alt: "Screenshot of Pizzeria Rustica mobile-friendly design.",
+        width: "900px",
+        height: "600px",
+      },
     ],
   },
   {
@@ -90,9 +142,30 @@ export const projectDetails = [
     ],
     webStack: ["React", "Next.js", "Tailwind CSS", "Zustand"],
     additionalImages: [
-      "/assets/images/gilded-1.png",
-      "/assets/images/gilded-2.png",
-      "/assets/images/gilded-3.png",
+      {
+        id: 1,
+        url: "/assets/images/gilded-1.png",
+        caption: "Homepage of Stay Healthy showcasing health articles.",
+        alt: "Screenshot of Stay Healthy homepage with health articles.",
+        width: "800px",
+        height: "600px",
+      },
+      {
+        id: 2,
+        url: "/assets/images/gilded-2.png",
+        caption: "Booking system interface for online doctor appointments.",
+        alt: "Screenshot of Stay Healthy booking system interface.",
+        width: "700px",
+        height: "500px",
+      },
+      {
+        id: 3,
+        url: "/assets/images/gilded-3.png",
+        caption: "Mobile-friendly design of the Stay Healthy website.",
+        alt: "Screenshot of Stay Healthy mobile-friendly design.",
+        width: "900px",
+        height: "600px",
+      },
     ],
   },
 ];

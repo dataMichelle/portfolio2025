@@ -65,3 +65,20 @@ body {
 .text-black {
   color: var(--text-color);
 }
+
+// animation for home page
+@keyframes skillFade {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-skillFade {
+  animation: skillFade 2s ease-in-out infinite;
+}
