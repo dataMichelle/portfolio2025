@@ -2,6 +2,7 @@ import gildedImg from "../assets/images/projectsGilded.png";
 import bayousideImg from "../assets/images/projects-bayouside.png";
 import pizzeriaImg from "../assets/images/projectsPizzeria.png";
 import stayHealthyImg from "../assets/images/placeholder.png";
+import gildedMenuImg from "../assets/images/gilded-menu.png";
 
 export const projectDetails = [
   {
@@ -22,11 +23,7 @@ export const projectDetails = [
       "Integrated a reservation system using Next.js API routes.",
     ],
     webStack: ["React", "Next.js", "Tailwind CSS", "Zustand"],
-    additionalImages: [
-      "/assets/images/gilded-1.png",
-      "/assets/images/gilded-2.png",
-      "/assets/images/gilded-3.png",
-    ],
+    additionalImages: [gildedMenuImg],
   },
   {
     projectURL: "bayouside-tennis",

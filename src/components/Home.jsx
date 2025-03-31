@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from React Router
 import profileImg from "../assets/images/profilePic6.png";
+import HeroProject from "./HeroProject"; // Import the HeroProject component
+import bayousideImg from "../assets/images/projects-bayouside.png";
+import SkillsAnimation from "./SkillsAnimation";
 
 const Home = () => {
   return (
@@ -12,12 +15,10 @@ const Home = () => {
         <h1 className="text-4xl font-bold text-primary-700 dark:text-primary-300">
           Hi, I'm Michelle.
         </h1>
-        <p className="text-lg text-neutrals-700 dark:text-neutrals-300 leading-relaxed">
-          I'm a passionate web developer with experience in JavaScript, React,
-          and Node.js. I enjoy solving problems and building modern,
-          user-friendly websites and applications. My goal is to create
-          intuitive, dynamic user experiences while continuously growing my
-          skills to bring ideas to life through code.
+        <p className="text-2xl text-neutrals-700 dark:text-neutrals-300 leading-relaxed">
+          I'm a passionate web developer specializing in front-end development.
+          I enjoy solving problems and building modern, user-friendly websites
+          and applications.
         </p>
         <Link
           to="/projects"
@@ -26,9 +27,18 @@ const Home = () => {
           View My Work
         </Link>
       </div>
+      {/* Hero Project */}
+      {/* <HeroProject
+        imageURL={bayousideImg}
+        title="Bayouside Tennis"
+        altText="Bayouside Tennis booking and payments screenshot"
+      /> */}
+
+      {/* Skills section */}
+      <SkillsAnimation />
 
       {/* Portrait Section */}
-      <div className="md:w-1/2 mt-4 md:mt-0 flex justify-center relative">
+      {/* <div className="md:w-1/2 mt-4 md:mt-0 flex justify-center relative">
         <div className="flex items-center justify-center">
           <img
             src={profileImg}
@@ -36,7 +46,7 @@ const Home = () => {
             className="rounded-t-full -mt-12 md:-mt-16 border-1 border-b-0 bg-primary-100  border-blue-300 shadow-xl"
           />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
