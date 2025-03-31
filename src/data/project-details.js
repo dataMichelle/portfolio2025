@@ -1,7 +1,7 @@
 import gildedImg from "../assets/images/projectsGilded.png";
 import bayousideImg from "../assets/images/projects-bayouside.png";
 import pizzeriaImg from "../assets/images/projectsPizzeria.png";
-import stayHealthyImg from "../../../../Portfolio/images/placeholder.png";
+import stayHealthyImg from "../assets/images/placeholder.png";
 
 export const projectDetails = [
   {
