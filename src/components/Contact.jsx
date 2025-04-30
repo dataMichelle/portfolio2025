@@ -16,7 +16,7 @@ const Contact = () => {
         <form
           name="contact"
           method="POST"
-          data-netlify="true"
+          netlify
           action="/thank-you" // Redirect to the Thank You page after submission
           className="space-y-4 text-sm sm:text-base"
         >
