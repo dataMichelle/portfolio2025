@@ -2,7 +2,7 @@ import React from "react";
 import { projectsData } from "../data/projects-data.js";
 import Project from "./Project";
 
-const Projects = () => {
+const ProjectsOverview = () => {
   return (
     <div className="p-8 bg-white dark:bg-neutrals-900 min-h-screen">
       <h1 className="text-4xl font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">
@@ -19,6 +19,8 @@ const Projects = () => {
               tags={project.tags}
               imageURL={project.imageURL}
               projectURL={project.projectURL}
+              liveURL={project.liveURL}
+              githubURL={project.githubURL}
             />
           ))}
         </div>
@@ -27,4 +29,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectsOverview;

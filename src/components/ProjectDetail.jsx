@@ -52,7 +52,11 @@ const ProjectDetail = () => {
         {/* Description Section */}
         <div className="flex-grow">
           <p className="text-lg text-gray-700 dark:text-gray-300">
-            {project.goal}
+            {project.goal?.map((goal, index) => (
+              <p key={index} className="text-gray-700 dark:text-gray-300 mb-4">
+                {goal}
+              </p>
+            ))}
           </p>
         </div>
       </section>
@@ -69,34 +73,50 @@ const ProjectDetail = () => {
           ))}
         </div>
       </section>
+
       {/* Additional Images Section */}
       <section className="max-w-6xl mx-auto">
+        <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
+          Additional Images
+        </h3>
         {project.additionalImages && (
-          <div className="my-4">
-            {/* Find the image with id 1 */}
-            {(() => {
-              const image = project.additionalImages.find(
-                (img) => img.id === 1
-              );
-              return image ? (
-                <>
-                  <img
-                    src={image.url}
-                    alt={image.alt}
-                    style={{
-                      maxWidth: "100%", // Ensures the image does not exceed the container width
-                      height: "auto", // Maintains the aspect ratio
-                    }}
-                    className="rounded-lg shadow-lg"
-                  />
-                  <p className=" text-gray-600 dark:text-gray-400 mt-2">
+          <div className="my-8 grid grid-cols-1 gap-16">
+            {project.additionalImages.map((image, index) => (
+              <div
+                key={image.id}
+                className={`flex flex-col ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } items-start`}
+              >
+                {/* Image */}
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  style={{
+                    width: image.width || "100%", // Use the width from the data file or default to 100%
+                    height: image.height || "auto", // Use the height from the data file or default to auto
+                  }}
+                  className="rounded-lg shadow-lg mb-4 md:mb-0 md:mr-4 md:ml-4"
+                />
+
+                {/* Process Section */}
+                <div className="flex-grow">
+                  <h4 className="text-lg font-bold text-primary-700 dark:text-primary-300 mb-2">
                     {image.caption}
-                  </p>
-                </>
-              ) : (
-                <p className="text-gray-500">Image not found.</p>
-              );
-            })()}
+                  </h4>
+                  <div className="text-gray-700 dark:text-gray-300">
+                    {image.process?.map((step, stepIndex) => (
+                      <p
+                        key={stepIndex}
+                        className="text-lg text-gray-700 dark:text-gray-300 mb-4"
+                      >
+                        {step}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </section>
