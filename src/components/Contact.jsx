@@ -49,7 +49,7 @@ const Contact = () => {
         <form
           name="contact"
           method="POST"
-          data-netlify="true"
+          netlify
           onSubmit={handleSubmit} // Handle form submission
           className="space-y-4 text-sm sm:text-base"
         >
