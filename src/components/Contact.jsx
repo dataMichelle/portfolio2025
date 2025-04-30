@@ -19,7 +19,6 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        setShowSuccessMessage(true); // Show success message
         e.target.reset(); // Reset the form
         toast.success("Your message has been sent!");
       } else {
@@ -48,7 +47,7 @@ const Contact = () => {
         <form
           name="contact"
           method="POST"
-          netlify
+          data-netlify="true" // Netlify form handling
           onSubmit={handleSubmit} // Handle form submission
           className="space-y-4 text-sm sm:text-base"
         >
