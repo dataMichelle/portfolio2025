@@ -1,68 +1,38 @@
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
+// functions/sendEmail.js
+const nodemailer = require("nodemailer");
 
-// Load environment variables from .env file
-dotenv.config();
+exports.handler = async function (event, context) {
+  // Get the form data from the request
+  const { name, email, message } = JSON.parse(event.body);
 
-export const handler = async (event) => {
-  if (event.httpMethod === "OPTIONS") {
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
-      body: "",
-    };
-  }
+  // Create a transporter using your email provider (e.g., Gmail, SMTP server)
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "data_Michelle@proton.me",
+      pass: "9NSWSZ37E4aJDOft0gEzpw",
+    },
+  });
 
+  // Define the email options
+  const mailOptions = {
+    from: email, // Sender's email
+    to: "your-email@gmail.com", // Recipient's email
+    subject: `New message from ${name}`,
+    text: message,
+  };
+
+  // Send the email
   try {
-    if (!event.body) {
-      throw new Error("Request body is missing");
-    }
-
-    const { name, email, message } = JSON.parse(event.body);
-
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
-
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      replyTo: email,
-      to: "data_Michelle@proton.me",
-      subject: `Message from ${name}`,
-      text: message,
-    };
-
     await transporter.sendMail(mailOptions);
-
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
       body: JSON.stringify({ message: "Email sent successfully!" }),
     };
   } catch (error) {
-    console.error("Error sending email:", error);
     return {
       statusCode: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        message: error.message || "Failed to send email.",
-      }),
+      body: JSON.stringify({ message: "Error sending email" }),
     };
   }
 };

@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
