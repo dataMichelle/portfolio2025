@@ -24,8 +24,9 @@ const Contact = () => {
           Get in Touch
         </h1>
         <form
+          id="contactForm"
           className="space-y-4 text-sm sm:text-base"
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit} // Use React's `onSubmit` handler
         >
           <div>
             <label
@@ -39,7 +40,7 @@ const Contact = () => {
               id="name"
               name="name"
               value={formData.name}
-              onChange={handleChange}
+              onChange={handleChange} // Use React's `onChange` handler
               className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
@@ -56,7 +57,7 @@ const Contact = () => {
               id="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={handleChange} // Use React's `onChange` handler
               className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
@@ -72,7 +73,7 @@ const Contact = () => {
               id="message"
               name="message"
               value={formData.message}
-              onChange={handleChange}
+              onChange={handleChange} // Use React's `onChange` handler
               className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               rows="4"
               required
@@ -81,7 +82,7 @@ const Contact = () => {
           <button
             type="submit"
             className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
-            disabled={isSubmitting}
+            disabled={isSubmitting} // Disable button while submitting
           >
             {isSubmitting ? "Sending..." : "Send"}
           </button>

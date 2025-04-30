@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
 
 const useContactForm = () => {
   const [formData, setFormData] = useState({
@@ -7,7 +6,6 @@ const useContactForm = () => {
     email: "",
     message: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,27 +21,27 @@ const useContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSuccessMessage("");
+    setErrorMessage("");
 
     try {
-      const { name, email, message } = formData;
+      const response = await fetch("/.netlify/functions/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      // Replace these with your EmailJS credentials
-      const serviceId = "service_hp5m8wp";
-      const templateId = "your_template_id";
-      const userId = "your_user_id";
+      const result = await response.json();
 
-      const templateParams = {
-        from_name: name,
-        from_email: email,
-        message: message,
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, userId);
-
-      setSuccessMessage("Your message has been sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
+      if (response.ok) {
+        setSuccessMessage(result.message);
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        throw new Error(result.message || "Failed to send email.");
+      }
     } catch (error) {
-      setErrorMessage("Failed to send your message. Please try again later.");
+      console.error("Error:", error);
+      setErrorMessage(error.message || "Failed to send email.");
     } finally {
       setIsSubmitting(false);
     }
