@@ -20,8 +20,9 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        setShowSuccessMessage(true); // Show the success message
+        setShowSuccessMessage(true); // Show success message
         e.target.reset(); // Reset the form
+        toast.success("Your message has been sent!");
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -107,27 +108,8 @@ const Contact = () => {
             {isSubmitting ? "Sending..." : "Send"}
           </button>
         </form>
-        <ToastContainer position="top-right" autoClose={3000} />
+        <ToastContainer position="top-center" autoClose={3000} />
       </div>
-
-      {/* Success Message Overlay */}
-      {showSuccessMessage && (
-        <div
-          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50"
-          onClick={() => setShowSuccessMessage(false)} // Close on click
-        >
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-2xl font-bold mb-4">Thank You!</h2>
-            <p>Your message has been sent successfully.</p>
-            <button
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-              onClick={() => setShowSuccessMessage(false)} // Close on button click
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
