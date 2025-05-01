@@ -1,36 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useContactForm from "../hooks/useContactForm";
 
 const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const {
+    formData,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+    successMessage,
+    errorMessage,
+  } = useContactForm();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.target);
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      });
-
-      if (response.ok) {
-        e.target.reset(); // Reset the form
-        toast.success("Your message has been sent!");
-      } else {
-        toast.error("Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
+  // Trigger toast notifications
+  useEffect(() => {
+    if (successMessage) {
+      toast.success(successMessage);
     }
-  };
+    if (errorMessage) {
+      toast.error(errorMessage);
+    }
+  }, [successMessage, errorMessage]);
 
   return (
     <div
@@ -45,14 +36,9 @@ const Contact = () => {
           Get in Touch
         </h1>
         <form
-          name="contact"
-          method="POST"
-          data-netlify="true" // Netlify form handling
-          onSubmit={handleSubmit} // Handle form submission
+          onSubmit={handleSubmit}
           className="space-y-4 text-sm sm:text-base"
         >
-          {/* Hidden input for Netlify form handling */}
-          <input type="hidden" name="form-name" value="contact" />
           <div>
             <label
               className="block text-black dark:text-white mb-2"
@@ -64,6 +50,8 @@ const Contact = () => {
               type="text"
               id="name"
               name="name"
+              value={formData.name}
+              onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
@@ -79,6 +67,25 @@ const Contact = () => {
               type="email"
               id="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              required
+            />
+          </div>
+          <div>
+            <label
+              className="block text-black dark:text-white mb-2"
+              htmlFor="title"
+            >
+              Subject
+            </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
@@ -93,6 +100,8 @@ const Contact = () => {
             <textarea
               id="message"
               name="message"
+              value={formData.message}
+              onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               rows="4"
               required
@@ -101,7 +110,7 @@ const Contact = () => {
           <button
             type="submit"
             className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
-            disabled={isSubmitting} // Disable button while submitting
+            disabled={isSubmitting}
           >
             {isSubmitting ? "Sending..." : "Send"}
           </button>
