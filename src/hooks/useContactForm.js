@@ -15,16 +15,22 @@ const useContactForm = () => {
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-    console.log(
-      "EmailJS initialized with Public Key:",
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    );
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    console.log("VITE_EMAILJS_PUBLIC_KEY:", publicKey || "MISSING");
+    if (!publicKey) {
+      console.error(
+        "Public Key is missing. Please set VITE_EMAILJS_PUBLIC_KEY in .env.local"
+      );
+      setErrorMessage("Configuration error: Public Key is missing");
+      return;
+    }
+    emailjs.init(publicKey);
+    console.log("EmailJS initialized successfully");
   }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(`Input changed: ${name} = ${value}`); // Debug input changes
+    console.log(`Input changed: ${name} = ${value}`);
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -43,7 +49,7 @@ const useContactForm = () => {
 
     // Log formData to verify fields
     console.log("Form Data being sent:", dataToSend);
-    console.log("Email field specifically:", dataToSend.email);
+    console.log("Email field specifically:", dataToSend.email || "MISSING");
 
     try {
       await emailjs.send(
@@ -54,7 +60,7 @@ const useContactForm = () => {
       setSuccessMessage("Your message has been sent successfully!");
       setFormData({ name: "", email: "", message: "", title: "", time: "" });
     } catch (error) {
-      setErrorMessage("Failed to send your message. Please try again.");
+      setErrorMessage("Failed to send your message: " + error.text);
       console.error("EmailJS error:", error);
     } finally {
       setIsSubmitting(false);
