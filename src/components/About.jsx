@@ -1,48 +1,87 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { motion as Motion } from "framer-motion";
+import profileImg from "../assets/images/profilePic6.png";
+import DarkModeToggle from "./DarkModeToggle";
+import { useDarkMode } from "../../context/DarkModeContext";
+
+// Animation variants for name
+const nameVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+// Animation variants for portrait
+const portraitVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.2 } },
+};
 
 const About = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+
   return (
-    <div id="about" className="p-8 bg-white dark:bg-neutrals-900 min-h-screen">
-      {/* About Title */}
-      <h1 className="text-4xl font-bold text-primary-700 dark:text-primary-300 mb-6">
-        About Me
-      </h1>
-
-      {/* About Content */}
-      <div className="space-y-6">
-        {/* Introduction */}
-        <p className="text-lg text-neutrals-700 dark:text-neutrals-300 leading-relaxed">
-          My coding journey kicked off 20 years ago, tinkering with HTML and
-          CSS, which led to me creating freelance websites for a few customers.
-          I really enjoyed the immediacy of watching the changes in my code come
-          to life but was contracting in technical writing at the time which
-          took precedence.
-        </p>
-
-        {/* Aha Moment */}
-        <p className="text-lg text-neutrals-700 dark:text-neutrals-300 leading-relaxed">
-          After being contracted to help create an online manager course at Dell
-          I was hired on in Sales Operations. I asked for some side work and
-          learned how the Dell.com websites were created. This led to the
-          opportunity for me to design the website for the first projector Dell
-          launch. This work led to me creating an internal web-based product
-          selector for our team. The goal was to help our sales team quickly
-          find the right product for their sales customers to recommend. I
-          designed the front-end and logic while a colleague handled the
-          back-end code.
-        </p>
-
-        {/* Current Skills */}
-        <p className="text-lg text-neutrals-700 dark:text-neutrals-300 leading-relaxed">
-          I left the workforce for some time to raise my children and because we
-          were transferred overseas for my husband's job. Upon return I went
-          back to school but after graduation our department program was
-          disbanded so I focused on day trading. I still missed coding and
-          started relearning HTML and CSS. I then learned JavaScript and React.
-          I am now learning Node.js and Express.
-        </p>
+    <section>
+      <DarkModeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+      {/* Name Div */}
+      <div className="fixed top-4 left-16 md:left-20 z-40">
+        <Motion.div variants={nameVariants} initial="hidden" animate="visible">
+          <Link
+            to="/"
+            className="text-primary-700 dark:!text-primary-50 font-poiret font-bold text-2xl md:text-5xl hover:text-primary-500 dark:hover:!text-primary-100 transition-colors duration-200"
+          >
+            Michelle Salazar
+          </Link>
+        </Motion.div>
       </div>
-    </div>
+      {/* Portrait Div */}
+      <div className="fixed top-40 md:top-60 left-16 md:left-20 z-10">
+        <Motion.div
+          variants={portraitVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="relative">
+            <div className="absolute -inset-6 bg-primary-300 dark:bg-primary-200 opacity-20 rounded-t-full blur-xl"></div>
+            <img
+              src={profileImg}
+              alt="Michelle Salazar"
+              className="relative rounded-t-full w-48 h-56 md:w-72 md:h-80 border-1 border-b-0 bg-primary-100 border-primary-300 dark:border-primary-200 shadow-xl transform hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </Motion.div>
+      </div>
+      {/* Content Section */}
+      <section className="min-h-screen px-8 md:px-14 pt-28 md:pt-32 pb-24 bg-transparent">
+        <div className="max-w-[640px] mx-auto space-y-6">
+          {/* About Title */}
+          <h1 className="text-4xl font-raleway font-bold text-primary-700 dark:!text-primary-50 mb-6 text-center">
+            About Me
+          </h1>
+          {/* Introduction */}
+          <p className="text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed text-black">
+            I'm Michelle Salazar, a web developer skilled in HTML, CSS,
+            JavaScript, React, Node.js, and WordPress, with a passion for
+            building responsive, user-friendly websites. I specialize in
+            creating sites optimized for performance and SEO, leveraging tools
+            like Google Analytics and HubSpot, and I thrive on solving complex
+            problems, fueled by curiosity and continuous learning.
+          </p>
+          {/* Aha Moment */}
+          <p className="text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed text-black">
+            My career journey has been anything but traditional: I've worked as
+            a contract web developer, day trader, university instructor, and
+            even a sales operations analyst at Dell, where I built internal
+            tools and launched a projector product website. I hold an MFA from
+            the University of North Texas and a BA in International Business, a
+            background that blends creativity with business savvy. I'm also
+            passionate about data visualization, automated workflows, and
+            creative coding, and I'm always looking to learn new technologies
+            and bring fresh ideas to my projects.
+          </p>
+        </div>
+      </section>
+    </section>
   );
 };
 

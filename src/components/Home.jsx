@@ -1,55 +1,157 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import profileImg from "../assets/images/profilePic6.png";
-import bayousideImg from "../assets/images/projects-bayouside.png";
+import { motion as Motion } from "framer-motion";
 import SkillsAnimation from "./SkillsAnimation";
+import DarkModeToggle from "./DarkModeToggle";
+import { useDarkMode } from "../../context/DarkModeContext";
+
+// Animation variants for header
+const headerVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+// Animation variants for blurb highlights
+const highlightVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.2 },
+  }),
+};
+
+// Animation variants for name
+const nameVariants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
 const Home = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+
   return (
-    <section className="min-h-screen px-6 md:px-20 py-16 grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-bg-color">
-      {/* Blurb Section */}
-      <div className="space-y-6 text-center md:text-left">
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight text-primary-700 dark:text-primary-200">
-          Hi, I'm Michelle 👋
-        </h1>
-        <p className="text-xl md:text-2xl text-neutrals-700 dark:text-neutrals-300">
-          A front-end developer crafting{" "}
-          <span className="text-yellow-500 font-semibold">user-friendly</span>,
-          <span className="text-yellow-500 font-semibold">
-            visually appealing
-          </span>{" "}
-          websites and apps using modern tools like React, Tailwind, and
-          Next.js.
-        </p>
-        <div className="flex justify-center md:justify-start gap-4">
+    <>
+      <DarkModeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+      <div className="fixed top-4 left-16 md:left-20 z-40">
+        <Motion.div variants={nameVariants} initial="hidden" animate="visible">
           <Link
-            to="/projects"
-            className="inline-block px-8 py-3 bg-primary-600 text-primary-900 font-semibold rounded-lg shadow-xl hover:scale-105 hover:bg-primary-500 transition-transform duration-300 border-2 border-primary-600 dark:border-primary-500"
+            to="/"
+            className="text-primary-700 dark:text-primary-50 font-poiret font-bold text-2xl md:text-5xl hover:text-primary-500 dark:hover:text-primary-100 transition-colors duration-200"
           >
-            View My Work
+            Michelle Salazar
           </Link>
-          <Link
-            to="/contact"
-            className="inline-block px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg shadow-xl hover:scale-105 hover:bg-primary-500 transition-transform duration-300 border-2 border-primary-900 bg-primary-900"
+        </Motion.div>
+      </div>
+      <section className="min-h-screen px-6 md:px-14 pt-28 md:pt-32 pb-24 bg-transparent flex flex-col items-center">
+        <div className="flex flex-col items-center gap-6">
+          <Motion.div
+            className="max-w-[640px] mx-auto space-y-6 text-center"
+            initial="hidden"
+            animate="visible"
+            style={{ zIndex: 15 }}
           >
-            Let's Connect
-          </Link>
+            <Motion.h1
+              className="text-5xl md:text-6xl font-raleway font-bold leading-tight bg-gradient-to-r from-primary-700 to-primary-500 text-transparent bg-clip-text dark:!text-primary-50"
+              variants={headerVariants}
+            >
+              Welcome
+            </Motion.h1>
+            <p className="text-xl md:text-2xl text-neutral-900 dark:text-neutral-100 max-w-[640px] mx-auto font-raleway leading-relaxed">
+              I am a front-end developer who crafts{" "}
+              <Motion.span
+                className="text-accent-100 dark:text-accent-200 font-semibold group-hover:underline"
+                variants={highlightVariants}
+                custom={0}
+              >
+                user-friendly
+              </Motion.span>{" "}
+              and{" "}
+              <Motion.span
+                className="text-accent-100 dark:text-accent-200 font-semibold group-hover:underline"
+                variants={highlightVariants}
+                custom={1}
+              >
+                visually appealing
+              </Motion.span>{" "}
+              websites with{" "}
+              <Motion.span
+                className="text-primary-500 dark:text-primary-300 font-semibold group-hover:underline"
+                variants={highlightVariants}
+                custom={2}
+              >
+                React
+              </Motion.span>
+              ,{" "}
+              <Motion.span
+                className="text-primary-500 dark:text-primary-300 font-semibold group-hover:underline"
+                variants={highlightVariants}
+                custom={3}
+              >
+                Tailwind
+              </Motion.span>
+              , and{" "}
+              <Motion.span
+                className="text-primary-500 dark:text-primary-300 font-semibold group-hover:underline"
+                variants={highlightVariants}
+                custom={4}
+              >
+                Framer Motion
+              </Motion.span>
+              .
+            </p>
+            <div className="flex justify-center gap-6">
+              <Motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  to="/projects"
+                  aria-label="View Michelle's projects"
+                  className="inline-block px-6 py-3 text-sm  border-2 border-primary-600 text-primary-900 dark:border-neutral-100 dark:text-neutral-100 font-nunito font-semibold rounded-full hover:bg-primary-600 hover:text-neutral-50 dark:hover:bg-neutral-100 dark:hover:text-primary-900 transition-all duration-300"
+                >
+                  View My Work
+                </Link>
+              </Motion.div>
+              <Motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  to="/contact"
+                  aria-label="Contact Michelle"
+                  className="inline-block px-6 py-3 text-sm bg-primary-500 text-neutral-50 dark:bg-primary-500 dark:text-neutral-50 dark:shadow-[0_2px_4px_rgba(200,200,200,0.3)] font-nunito font-semibold rounded-full hover:bg-primary-300 dark:hover:bg-primary-300 transition-all duration-300"
+                >
+                  Let's Connect
+                </Link>
+              </Motion.div>
+            </div>
+          </Motion.div>
+          <div className="max-w-[500px] mx-auto mt-6" style={{ zIndex: 5 }}>
+            <SkillsAnimation />
+          </div>
+          <div className="mt-16 text-center" style={{ zIndex: 15 }}>
+            <h2 className="text-3xl font-bold text-primary-700 dark:!text-primary-50">
+              Ready to see what I can do?
+            </h2>
+            <Motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/projects"
+                aria-label="Explore Michelle's projects"
+                className="mt-6 inline-block px-10 py-4 bg-accent-100 text-neutral-50 dark:bg-primary-500 dark:text-neutral-50 dark:shadow-[0_2px_4px_rgba(200,200,200,0.3)] font-nunito font-semibold rounded-full hover:bg-primary-300 dark:hover:bg-primary-300 transition-all duration-300"
+              >
+                Explore My Projects
+              </Link>
+            </Motion.div>
+          </div>
         </div>
-      </div>
-
-      <div className="flex justify-center items-center">
-        <img
-          src={profileImg}
-          alt="Michelle Salazar"
-          className="rounded-full w-48 h-48 border-4 border-primary-300 dark:border-primary-500 shadow-lg"
-        />
-      </div>
-
-      {/* Skills section */}
-      <div className="md:col-span-2 mt-16">
-        <SkillsAnimation />
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

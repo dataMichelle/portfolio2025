@@ -1,7 +1,17 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion as Motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useContactForm from "../hooks/useContactForm";
+import DarkModeToggle from "./DarkModeToggle";
+import { useDarkMode } from "../../context/DarkModeContext";
+
+// Animation variants for name
+const nameVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
 const Contact = () => {
   const {
@@ -12,8 +22,8 @@ const Contact = () => {
     successMessage,
     errorMessage,
   } = useContactForm();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
-  // Trigger toast notifications
   useEffect(() => {
     if (successMessage) {
       toast.success(successMessage);
@@ -26,13 +36,21 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="flex justify-center items-center min-h-screen bg-white dark:bg-gray-900"
+      className="flex justify-center items-center min-h-screen bg-transparent text-neutral-900 dark:text-primary-100"
     >
-      <div
-        className="p-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl border border-gray-300 dark:border-gray-700"
-        style={{ backgroundColor: "white" }}
-      >
-        <h1 className="text-2xl sm:text-3xl font-nunito text-black dark:text-white mb-4 text-center">
+      <DarkModeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+      <div className="fixed top-4 left-16 md:left-20 z-40">
+        <Motion.div variants={nameVariants} initial="hidden" animate="visible">
+          <Link
+            to="/"
+            className="text-primary-700 dark:!text-primary-50 font-poiret font-bold text-2xl md:text-5xl hover:text-primary-500 dark:hover:!text-primary-100 transition-colors duration-200"
+          >
+            Michelle Salazar
+          </Link>
+        </Motion.div>
+      </div>
+      <div className="p-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl border-none bg-primary-500 dark:bg-primary-500">
+        <h1 className="text-2xl font-bold sm:text-3xl font-nunito text-neutral-50 dark:text-primary-100 mb-4 text-center">
           Get in Touch
         </h1>
         <form
@@ -41,7 +59,7 @@ const Contact = () => {
         >
           <div>
             <label
-              className="block text-black dark:text-white mb-2"
+              className="block text-neutral-50 dark:text-primary-100 mb-2"
               htmlFor="name"
             >
               Name
@@ -52,13 +70,13 @@ const Contact = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full p-2 border border-neutral-100 rounded bg-primary-100 text-neutral-900 dark:bg-primary-700 dark:text-neutral-50 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:ring-2 focus:ring-primary-100 dark:focus:ring-neutral-700 transition duration-300"
               required
             />
           </div>
           <div>
             <label
-              className="block text-black dark:text-white mb-2"
+              className="block text-neutral-50 dark:text-primary-100 mb-2"
               htmlFor="email"
             >
               Email
@@ -69,13 +87,13 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full p-2 border border-neutral-100 rounded bg-primary-100 text-neutral-900 dark:bg-primary-700 dark:text-neutral-50 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:ring-2 focus:ring-primary-100 dark:focus:ring-neutral-700 transition duration-300"
               required
             />
           </div>
           <div>
             <label
-              className="block text-black dark:text-white mb-2"
+              className="block text-neutral-50 dark:text-primary-100 mb-2"
               htmlFor="title"
             >
               Subject
@@ -86,13 +104,13 @@ const Contact = () => {
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full p-2 border border-neutral-100 rounded bg-primary-100 text-neutral-900 dark:bg-primary-700 dark:text-neutral-50 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:ring-2 focus:ring-primary-100 dark:focus:ring-neutral-700 transition duration-300"
               required
             />
           </div>
           <div>
             <label
-              className="block text-black dark:text-white mb-2"
+              className="block text-neutral-50 dark:text-primary-100 mb-2"
               htmlFor="message"
             >
               Message
@@ -102,18 +120,20 @@ const Contact = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full p-2 border border-neutral-100 rounded bg-primary-100 text-neutral-900 dark:bg-primary-700 dark:text-neutral-50 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:ring-2 focus:ring-primary-100 dark:focus:ring-neutral-700 transition duration-300"
               rows="4"
               required
             ></textarea>
           </div>
-          <button
-            type="submit"
-            className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Sending..." : "Send"}
-          </button>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="w-32 mx-auto p-2 bg-primary-100 text-neutral-900 dark:bg-primary-700 dark:text-primary-100 rounded-full shadow-md hover:shadow-lg transition-shadow duration-300"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send"}
+            </button>
+          </div>
         </form>
         <ToastContainer position="top-center" autoClose={3000} />
       </div>

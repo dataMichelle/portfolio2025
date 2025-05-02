@@ -1,38 +1,55 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { projectDetails } from "../data/project-details"; // Import the data file directly
+import { Link, useParams } from "react-router-dom";
+import { motion as Motion } from "framer-motion";
+import { projectDetails } from "../data/project-details";
+import DarkModeToggle from "./DarkModeToggle";
+import { useDarkMode } from "../../context/DarkModeContext";
+import { FaGithub } from "react-icons/fa";
+
+// Animation variants for name
+const nameVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
 const ProjectDetail = () => {
   const { projectURL } = useParams();
-  const project = projectDetails.find((p) => p.projectURL === projectURL); // Find the project by URL
+  const project = projectDetails.find((p) => p.projectURL === projectURL);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   if (!project) {
-    return <p className="text-center text-red-500">Project not found!</p>;
+    return <p className="text-center text-error">Project not found!</p>;
   }
 
   return (
-    <main className=" p-8 min-h-screen flex flex-col gap-8">
-      {/* Title Section */}
+    <section className="p-8 min-h-screen flex flex-col pt-28 gap-8 bg-transparent">
+      <DarkModeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+      <div className="fixed top-4 left-16 md:left-20 z-40">
+        <Motion.div variants={nameVariants} initial="hidden" animate="visible">
+          <Link
+            to="/"
+            className="text-primary-700 dark:text-primary-300 font-poiret font-bold text-2xl md:text-5xl hover:text-primary-500 dark:hover:text-primary-100 transition-colors duration-200"
+          >
+            Michelle Salazar
+          </Link>
+        </Motion.div>
+      </div>
       <section className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-primary-700 dark:text-primary-300 text-center mb-4">
           {project.title}
         </h2>
       </section>
-
-      {/* Image and Description Section */}
       <section className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center">
-        {/* Image Section */}
         <div className="flex-shrink-0 w-full md:w-1/2 relative">
           <img
             src={project.imageURL}
             alt={project.title}
             className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
-          {/* Links Section */}
           <div className="flex flex-row justify-end gap-4 mt-4">
             <a
               href={project.liveURL}
-              className="text-yellow-500 dark:text-yellow-300 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
+              className="text-accent-300 dark:text-accent-100 hover:text-accent-200 dark:hover:text-accent-200 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -40,41 +57,42 @@ const ProjectDetail = () => {
             </a>
             <a
               href={project.githubURL}
-              className="text-primary-500 dark:text-primary-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              className="text-primary-500 dark:text-primary-300 hover:text-accent-200 dark:hover:text-accent-100 hover:scale-110 transition-all duration-200"
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub Repo
+              <FaGithub className="w-8 h-8" />
             </a>
           </div>
         </div>
-
-        {/* Description Section */}
         <div className="flex-grow">
-          <p className="text-lg text-gray-700 dark:text-gray-300">
+          <p className="text-lg text-neutral-900 dark:text-neutral-300">
             {project.goal?.map((goal, index) => (
-              <p key={index} className="text-gray-700 dark:text-gray-300 mb-4">
+              <p
+                key={index}
+                className="text-neutral-900 dark:text-neutral-300 mb-4"
+              >
                 {goal}
               </p>
             ))}
           </p>
         </div>
       </section>
-      {/* Process Section */}
       <section className="max-w-6xl mx-auto">
         <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
           Process
         </h3>
-        <div className="text-gray-700 dark:text-gray-300">
+        <div className="text-neutral-900 dark:text-neutral-300">
           {project.process?.map((step, index) => (
-            <p key={index} className="text-gray-700 dark:text-gray-300 mb-4">
+            <p
+              key={index}
+              className="text-neutral-900 dark:text-neutral-300 mb-4"
+            >
               {step}
             </p>
           ))}
         </div>
       </section>
-
-      {/* Additional Images Section */}
       <section className="max-w-6xl mx-auto">
         <h3 className="text-2xl font-bold text-primary-700 dark:text-primary-300 mb-4">
           Additional Images
@@ -88,27 +106,24 @@ const ProjectDetail = () => {
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 } items-start`}
               >
-                {/* Image */}
                 <img
                   src={image.url}
                   alt={image.alt}
                   style={{
-                    width: image.width || "100%", // Use the width from the data file or default to 100%
-                    height: image.height || "auto", // Use the height from the data file or default to auto
+                    width: image.width || "100%",
+                    height: image.height || "auto",
                   }}
                   className="rounded-lg shadow-lg mb-4 md:mb-0 md:mr-4 md:ml-4"
                 />
-
-                {/* Process Section */}
                 <div className="flex-grow">
                   <h4 className="text-lg font-bold text-primary-700 dark:text-primary-300 mb-2">
                     {image.caption}
                   </h4>
-                  <div className="text-gray-700 dark:text-gray-300">
+                  <div className="text-neutral-900 dark:text-neutral-300">
                     {image.process?.map((step, stepIndex) => (
                       <p
                         key={stepIndex}
-                        className="text-lg text-gray-700 dark:text-gray-300 mb-4"
+                        className="text-lg text-neutral-900 dark:text-neutral-300 mb-4"
                       >
                         {step}
                       </p>
@@ -120,7 +135,7 @@ const ProjectDetail = () => {
           </div>
         )}
       </section>
-    </main>
+    </section>
   );
 };
 
