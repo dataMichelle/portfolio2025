@@ -4,7 +4,6 @@ import { motion as Motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useContactForm from "../hooks/useContactForm";
-import DarkModeToggle from "./DarkModeToggle";
 import { useDarkMode } from "../../context/DarkModeContext";
 
 // Animation variants for name
@@ -38,17 +37,6 @@ const Contact = () => {
       id="contact"
       className="flex justify-center items-center min-h-screen bg-transparent text-neutral-900 dark:text-primary-100"
     >
-      <DarkModeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-      <div className="fixed top-4 left-16 md:left-20 z-40">
-        <Motion.div variants={nameVariants} initial="hidden" animate="visible">
-          <Link
-            to="/"
-            className="text-primary-700 dark:!text-primary-50 font-poiret font-bold text-2xl md:text-5xl hover:text-primary-500 dark:hover:!text-primary-100 transition-colors duration-200"
-          >
-            Michelle Salazar
-          </Link>
-        </Motion.div>
-      </div>
       <div className="p-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl border-none bg-primary-500 dark:bg-primary-500">
         <h1 className="text-2xl font-bold sm:text-3xl font-nunito text-neutral-50 dark:text-primary-100 mb-4 text-center">
           Get in Touch

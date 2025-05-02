@@ -19,17 +19,7 @@ const ProjectsOverview = () => {
     <section className="p-8 bg-transparent min-h-screen pt-28">
       {/* Dark Mode Toggle */}
       <DarkModeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-      {/* Name Div */}
-      <div className="fixed top-4 left-16 md:left-20 z-40">
-        <Motion.div variants={nameVariants} initial="hidden" animate="visible">
-          <Link
-            to="/"
-            className="text-primary-700 dark:text-primary-300 font-poiret font-bold text-2xl md:text-5xl hover:text-primary-500 dark:hover:text-primary-100 transition-colors duration-200"
-          >
-            Michelle Salazar
-          </Link>
-        </Motion.div>
-      </div>
+
       <h1 className="text-4xl font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">
         My Projects
       </h1>

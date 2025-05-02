@@ -5,7 +5,6 @@ import { CiLight, CiDark } from "react-icons/ci";
 const DarkModeToggle = ({ toggleDarkMode, isDarkMode }) => {
   return (
     <Motion.div
-      className="fixed top-4 right-4 z-40"
       whileHover={{ scale: 1.2, rotate: 15 }}
       whileTap={{ scale: 0.95 }}
     >
@@ -13,7 +12,7 @@ const DarkModeToggle = ({ toggleDarkMode, isDarkMode }) => {
         onClick={toggleDarkMode}
         className={`p-3 rounded-full text-neutral-50 shadow-2xl backdrop-filter backdrop-blur-md transition-all duration-300 focus:outline-none focus:ring-2 ${
           isDarkMode
-            ? "bg-accent-50 border-2 text-primary-900 border-primary-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] "
+            ? "bg-accent-50 border-2 text-primary-900 border-primary-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
             : "bg-primary-900 border-2 text-white border-primary-500 hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
         }`}
         aria-label="Toggle dark mode"
