@@ -8,12 +8,19 @@ const portraitVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.2 } },
 };
 
+// Animation variants for text content
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4 } },
+};
+
 const About = () => {
   return (
-    <section className="min-h-screen px-4 sm:px-8 md:px-14 pt-24 sm:pt-28 md:pt-32 pb-24 bg-transparent">
-      {/* Portrait Div */}
-      <div className="fixed top-16 sm:top-20 md:top-60 left-1/2 transform -translate-x-1/2 md:left-24 md:transform-none z-10">
+    <section className="min-h-screen px-4 sm:px-8 md:px-14 pt-16 sm:pt-20 md:pt-24 pb-16 bg-transparent flex items-center justify-center">
+      <div className="max-w-7xl w-full flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center md:items-start">
+        {/* Profile Image */}
         <Motion.div
+          className="w-full md:w-1/3 flex justify-center"
           variants={portraitVariants}
           initial="hidden"
           animate="visible"
@@ -27,34 +34,40 @@ const About = () => {
             />
           </div>
         </Motion.div>
-      </div>
-      {/* Content Section */}
-      <div className="max-w-[640px] mx-auto space-y-4 sm:space-y-6 pt-36 sm:pt-48 md:pt-96">
-        {/* About Title */}
-        <h1 className="text-3xl sm:text-4xl font-raleway font-bold text-primary-700 dark:!text-primary-50 mb-4 sm:mb-6 text-center">
-          About Me
-        </h1>
-        {/* Introduction */}
-        <p className="text-base sm:text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed text-black">
-          I'm Michelle Salazar, a web developer skilled in HTML, CSS,
-          JavaScript, React, Node.js, and WordPress, with a passion for building
-          responsive, user-friendly websites. I specialize in creating sites
-          optimized for performance and SEO, leveraging tools like Google
-          Analytics and HubSpot, and I thrive on solving complex problems,
-          fueled by curiosity and continuous learning.
-        </p>
-        {/* Aha Moment */}
-        <p className="text-base sm:text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed text-black">
-          My career journey has been anything but traditional: I've worked as a
-          contract web developer, day trader, university instructor, and even a
-          sales operations analyst at Dell, where I built internal tools and
-          launched a projector product website. I hold an MFA from the
-          University of North Texas and a BA in International Business, a
-          background that blends creativity with business savvy. I'm also
-          passionate about data visualization, automated workflows, and creative
-          coding, and I'm always looking to learn new technologies and bring
-          fresh ideas to my projects.
-        </p>
+
+        {/* Content Section */}
+        <Motion.div
+          className="w-full md:w-2/3 space-y-4 sm:space-y-6 text-center md:text-left"
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* About Title */}
+          <h1 className="text-3xl sm:text-4xl font-raleway font-bold text-primary-700 dark:!text-primary-50 mb-4 sm:mb-6">
+            About Me
+          </h1>
+          {/* Introduction */}
+          <p className="text-base sm:text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed">
+            I'm Michelle Salazar, a web developer skilled in HTML, CSS,
+            JavaScript, React, Node.js, and WordPress, with a passion for
+            building responsive, user-friendly websites. I specialize in
+            creating sites optimized for performance and SEO, leveraging tools
+            like Google Analytics and HubSpot, and I thrive on solving complex
+            problems, fueled by curiosity and continuous learning.
+          </p>
+          {/* Aha Moment */}
+          <p className="text-base sm:text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed">
+            My career journey has been anything but traditional: I've worked as
+            a contract web developer, day trader, university instructor, and
+            even a sales operations analyst at Dell, where I built internal
+            tools and launched a projector product website. I hold an MFA from
+            the University of North Texas and a BA in International Business, a
+            background that blends creativity with business savvy. I'm also
+            passionate about data visualization, automated workflows, and
+            creative coding, and I'm always looking to learn new technologies
+            and bring fresh ideas to my projects.
+          </p>
+        </Motion.div>
       </div>
     </section>
   );

@@ -114,7 +114,7 @@ const Home = () => {
               </Motion.div>
             </div>
           </Motion.div>
-          <div className="max-w-[500px] mx-auto mt-6" style={{ zIndex: 5 }}>
+          <div className="max-w-[500px] mx-auto mt-10" style={{ zIndex: 5 }}>
             <SkillsAnimation />
           </div>
           <div className="mt-16 text-center" style={{ zIndex: 15 }}>

@@ -6,12 +6,6 @@ import Project from "./Project";
 import DarkModeToggle from "./DarkModeToggle";
 import { useDarkMode } from "../../context/DarkModeContext";
 
-// Animation variants for name
-const nameVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
 const ProjectsOverview = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 

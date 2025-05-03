@@ -47,8 +47,8 @@ const Navbar = () => {
     },
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleMobileLinkClick = () => {
+    setIsMenuOpen(false); // Close mobile menu
   };
 
   return (
@@ -56,7 +56,7 @@ const Navbar = () => {
       {/* Hamburger Menu */}
       <div className="md:hidden fixed top-4 left-4 z-50">
         <button
-          onClick={toggleMenu}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="p-2 rounded-full bg-neutral-100/50 dark:bg-neutral-900/50 backdrop-filter backdrop-blur-md shadow-md text-primary-700 dark:text-primary-100 focus:outline-none"
           aria-label="Toggle menu"
         >
@@ -68,39 +68,37 @@ const Navbar = () => {
       <nav className="flex items-center justify-between px-4 sm:px-6 md:px-6 pt-4 bg-transparent z-30">
         {/* Name */}
         <Motion.div
-          className="md:ml-4 md:mr-4 lg:ml-4 lg:mr-4 flex-1 md:flex-none flex justify-center md:justify-start min-w-0 w-full md:w-auto text-center md:text-left"
+          className="md:ml-4 md:mr-4 lg:ml-4 lg:mr-4 flex-1 md:flex-none flex justify-center md:justify-start min-w-0 w-full md:w-auto text-center md:text-left ml-12 sm:ml-12"
           variants={nameVariants}
           initial="hidden"
           animate="visible"
         >
           <Link
             to="/"
-            className="text-primary-700 dark:!text-primary-50 font-poiret font-bold text-base sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl hover:text-primary-500 dark:hover:!text-primary-100 transition-colors duration-200 mx-auto md:mx-0"
+            className="text-primary-700 dark:!text-primary-50 font-poiret font-bold text-2xl sm:text-2xl md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl hover:text-primary-500 dark:hover:!text-primary-100 transition-colors duration-200 mx-auto md:mx-0"
           >
             Michelle Salazar
           </Link>
         </Motion.div>
 
         {/* Centered Icon Navigation (Pill-Shaped, md and above) */}
-        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 bg-neutral-100/50 dark:bg-neutral-900/50 navbar-glass rounded-full shadow-lg px-4 py-4 md:px-3 md:py-3 lg:px-6 lg:py-5 backdrop-filter backdrop-blur-md md:mt-1 lg:mt-6 pointer-events-none">
-          <div className="flex items-center justify-center space-x-6 sm:space-x-8 md:space-x-4 lg:space-x-10 pointer-events-auto">
+        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 bg-neutral-100/50 dark:bg-neutral-900/50 navbar-glass rounded-full shadow-lg px-4 py-4 md:px-3 md:py-3 lg:px-6 lg:py-5 backdrop-filter backdrop-blur-md md:mt-2 lg:mt-6 z-50">
+          <div className="flex items-center justify-center space-x-6 sm:space-x-8 md:space-x-4 lg:space-x-10">
             {links.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `flex items-center space-x-2 text-primary-700 dark:!text-primary-100 group hover:text-accent-300 dark:hover:!text-primary-50 transition-colors duration-200 ${
+                  `flex items-center space-x-2 text-primary-700 dark:!text-primary-100 group hover:text-accent-300 dark:hover:!text-primary-50 transition-colors duration-200 cursor-pointer relative z-50 ${
                     isActive ? "text-accent-300 dark:!text-primary-50" : ""
                   }`
                 }
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => console.log(`NavLink clicked: ${link.to}`)} // Debug click
               >
-                <div className="flex items-center space-x-1">
-                  {link.icon}
-                  <span className="text-sm md:text-xs lg:text-base font-nunito font-medium group-hover:underline">
-                    {link.text}
-                  </span>
-                </div>
+                {link.icon}
+                <span className="text-sm md:text-xs lg:text-base font-nunito font-medium group-hover:underline">
+                  {link.text}
+                </span>
               </NavLink>
             ))}
           </div>
@@ -115,7 +113,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu (below md) */}
+      {/* Mobile/Tablet Menu (below md) */}
       {isMenuOpen && (
         <div className="md:hidden fixed top-16 left-0 w-full bg-neutral-100/50 dark:bg-neutral-900/50 backdrop-filter backdrop-blur-md shadow-lg z-40 flex flex-col items-center py-4">
           {links.map((link) => (
@@ -123,16 +121,16 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `flex items-center space-x-2 text-primary-700 dark:!text-primary-100 py-2 hover:text-accent-300 dark:hover:!text-primary-50 transition-colors duration-200 ${
+                `flex items-center space-x-2 text-primary-700 dark:!text-primary-100 py-2 hover:text-accent-300 dark:hover:!text-primary-50 transition-colors duration-200 cursor-pointer relative z-40 ${
                   isActive
                     ? "text-accent-300 dark:!text-primary-50 underline underline-offset-4"
                     : ""
                 }`
               }
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleMobileLinkClick}
             >
               {link.icon}
-              <span className="text-2xl font-nunito font-medium">
+              <span className="text-base font-nunito font-medium">
                 {link.text}
               </span>
             </NavLink>
