@@ -95,7 +95,7 @@ const Home = () => {
                 <Link
                   to="/projects"
                   aria-label="View Michelle's projects"
-                  className="inline-block px-6 py-2 text-sm  text-primary-900 border-1 border-primary-600 dark:bg-neutral-900 dark:border-neutral-100 dark:text-neutral-100 font-nunito font-semibold rounded-full hover:bg-primary-600 hover:text-neutral-50 dark:hover:bg-neutral-100 dark:hover:text-primary-900 transition-all duration-300"
+                  className="inline-block px-6 py-2 text-sm  text-primary-900 border-1 border-primary-600  dark:border-neutral-100 dark:text-neutral-100 font-nunito font-semibold rounded-full hover:bg-primary-600 hover:text-neutral-50 dark:hover:bg-neutral-100 dark:hover:text-primary-900 transition-all duration-300"
                 >
                   View My Work
                 </Link>
@@ -107,7 +107,7 @@ const Home = () => {
                 <Link
                   to="/contact"
                   aria-label="Contact Michelle"
-                  className="inline-block px-6 py-[.55rem] text-sm bg-primary-500 text-neutral-50 dark:bg-primary-500 dark:text-neutral-50 dark:shadow-[0_2px_4px_rgba(200,200,200,0.3)] font-nunito font-semibold rounded-full hover:bg-primary-300 dark:hover:bg-primary-300 transition-all duration-300"
+                  className="inline-block px-6 py-[.55rem]  text-sm bg-primary-500 text-neutral-50 dark:bg-primary-500 dark:text-neutral-50 dark:shadow-[0_2px_4px_rgba(200,200,200,0.3)] font-nunito font-semibold rounded-full hover:bg-primary-300 dark:hover:bg-primary-300 transition-all duration-300"
                 >
                   Let's Connect
                 </Link>
