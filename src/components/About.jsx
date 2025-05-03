@@ -16,7 +16,7 @@ const textVariants = {
 
 const About = () => {
   return (
-    <section className="min-h-screen px-4 sm:px-8 md:px-14 pt-16 sm:pt-20 md:pt-24 pb-16 bg-transparent flex items-center justify-center">
+    <section className="min-h-fit px-4 sm:px-8 md:px-14 pt-16 sm:pt-12 md:pt-16 lg:pt-20 pb-16 bg-transparent flex justify-center">
       <div className="max-w-7xl w-full flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center md:items-start">
         {/* Profile Image */}
         <Motion.div
@@ -30,7 +30,7 @@ const About = () => {
             <img
               src={profileImg}
               alt="Michelle Salazar"
-              className="relative rounded-t-full w-32 h-36 sm:w-48 sm:h-56 md:w-72 md:h-80 border-1 border-b-0 bg-primary-100 border-primary-300 dark:border-primary-200 shadow-xl transform hover:scale-105 transition-transform duration-500"
+              className="relative rounded-t-full w-full max-w-[80%] sm:max-w-[70%] md:max-w-[50%] h-auto border-1 border-b-0 bg-primary-100 border-primary-300 dark:border-primary-200 shadow-xl transform hover:scale-105 transition-transform duration-500 object-contain aspect-[32/36]"
             />
           </div>
         </Motion.div>

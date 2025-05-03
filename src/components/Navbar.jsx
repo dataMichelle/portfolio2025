@@ -93,7 +93,6 @@ const Navbar = () => {
                     isActive ? "text-accent-300 dark:!text-primary-50" : ""
                   }`
                 }
-                onClick={() => console.log(`NavLink clicked: ${link.to}`)} // Debug click
               >
                 {link.icon}
                 <span className="text-sm md:text-xs lg:text-base font-nunito font-medium group-hover:underline">
@@ -105,7 +104,7 @@ const Navbar = () => {
         </div>
 
         {/* Dark Mode Toggle (Right Corner) */}
-        <div className="flex-1 flex justify-end md:mr-4 lg:mr-4 z-40">
+        <div className="fixed top-4 right-4 z-50 md:fixed md:top-4 md:right-4 lg:flex lg:flex-1 lg:justify-end lg:mr-4">
           <DarkModeToggle
             toggleDarkMode={toggleDarkMode}
             isDarkMode={isDarkMode}

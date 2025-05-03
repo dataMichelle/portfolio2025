@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { motion as Motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useContactForm from "../hooks/useContactForm";
-import { useDarkMode } from "../../context/DarkModeContext";
 
 const Contact = () => {
   const {
@@ -15,7 +12,6 @@ const Contact = () => {
     successMessage,
     errorMessage,
   } = useContactForm();
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   useEffect(() => {
     if (successMessage) {
@@ -29,15 +25,15 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="flex justify-center items-center min-h-screen bg-transparent text-neutral-900 dark:text-primary-100"
+      className="flex justify-center min-h-fit bg-transparent text-neutral-900 dark:text-primary-100 pt-12 sm:pt-16 md:pt-28"
     >
-      <div className="p-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl border-none bg-primary-500 dark:bg-primary-500">
-        <h1 className="text-2xl font-bold sm:text-3xl font-nunito text-neutral-50 dark:text-primary-100 mb-4 text-center">
+      <div className="px-4 sm:px-8 pb-0 pt-4 sm:pt-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-4 sm:mx-6 md:mx-auto mt-4 sm:mt-6 md:mt-0 mb-0 border-none bg-primary-500 dark:bg-primary-500">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold font-nunito text-neutral-50 dark:text-primary-100 mb-2 sm:mb-3 text-center">
           Get in Touch
         </h1>
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 text-sm sm:text-base"
+          className="space-y-2 sm:space-y-3 text-xs sm:text-sm md:text-base"
         >
           <div>
             <label
@@ -107,10 +103,10 @@ const Contact = () => {
               required
             ></textarea>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-0 pt-0">
             <button
               type="submit"
-              className="w-32 mx-auto p-2 bg-primary-100 text-neutral-900 dark:bg-primary-700 dark:text-primary-100 rounded-full shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="w-32 mb-10 mx-auto p-2 bg-primary-100 text-neutral-900 dark:bg-primary-700 dark:text-primary-100 rounded-full shadow-md hover:shadow-lg transition-shadow duration-300"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Sending..." : "Send"}
