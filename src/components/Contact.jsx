@@ -6,12 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import useContactForm from "../hooks/useContactForm";
 import { useDarkMode } from "../../context/DarkModeContext";
 
-// Animation variants for name
-const nameVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
 const Contact = () => {
   const {
     formData,
