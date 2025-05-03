@@ -48,7 +48,7 @@ const About = () => {
           </h1>
           {/* Introduction */}
           <p className="text-base sm:text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed">
-            I'm Michelle Salazar, a web developer skilled in HTML, CSS,
+            A little about me... I'm a web developer skilled in HTML, CSS,
             JavaScript, React, Node.js, and WordPress, with a passion for
             building responsive, user-friendly websites. I specialize in
             creating sites optimized for performance and SEO, leveraging tools
