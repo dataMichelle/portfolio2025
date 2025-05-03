@@ -90,7 +90,7 @@ const Navbar = () => {
                   key={link.to}
                   to={link.to}
                   className={({ isActive }) =>
-                    `flex items-center space-x-2 text-primary-700 dark:!text-primary-100 group hover:text-accent-300 dark:hover:!text-primary-50 transition-colors duration-200 cursor-pointer relative z-50 ${
+                    `flex items-center space-x-2 text-primary-700 dark:!text-primary-100 group hover:text-accent-300 dark:hover:!text-primary-50 transition-colors duration-200 cursor-pointer relative z-60 ${
                       isActive ? "text-accent-300 dark:!text-primary-50" : ""
                     }`
                   }
@@ -122,7 +122,7 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `flex items-center space-x-2 text-primary-700 dark:!text-primary-100 py-2 hover:text-accent-300 dark:hover:!text-primary-50 transition-colors duration-200 cursor-pointer relative z-40 ${
+                `flex items-center space-x-2 text-primary-700 dark:!text-primary-100 py-2 hover:text-accent-300 dark:hover:!text-primary-50 transition-colors duration-200 cursor-pointer relative z-60 ${
                   isActive
                     ? "text-accent-300 dark:!text-primary-50 underline underline-offset-4"
                     : ""

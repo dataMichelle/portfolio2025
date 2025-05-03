@@ -16,28 +16,28 @@ const textVariants = {
 
 const About = () => {
   return (
-    <section className="min-h-fit px-4 sm:px-8 md:px-14 pt-16 sm:pt-12 mt-8 md:pt-16 lg:pt-20 pb-16 bg-transparent flex justify-center">
-      <div className="max-w-7xl w-full flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center md:items-start">
+    <section className="min-h-fit px-0 sm:px-8 md:px-14 pt-16 sm:pt-12 mt-8 md:pt-16 lg:pt-20 pb-16 bg-transparent flex justify-center">
+      <div className="max-w-7xl w-full flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center md:items-start mx-auto">
         {/* Profile Image */}
         <Motion.div
-          className="w-full md:w-1/3 flex justify-center"
+          className="max-w-[80%] md:w-1/3 flex justify-center mx-auto text-center"
           variants={portraitVariants}
           initial="hidden"
           animate="visible"
         >
-          <div className="relative">
+          <div className="relative mx-auto">
             <div className="absolute -inset-4 sm:-inset-6 bg-primary-300 dark:bg-primary-200 opacity-20 rounded-t-full blur-xl"></div>
             <img
               src={profileImg}
               alt="Michelle Salazar"
-              className="relative rounded-t-full w-full max-w-[80%] sm:max-w-[70%] md:max-w-[50%] h-auto border-1 border-b-0 bg-primary-100 border-primary-300 dark:border-primary-200 shadow-xl transform hover:scale-105 transition-transform duration-500 object-contain aspect-[32/36]"
+              className="relative rounded-t-full max-w-[80%] sm:max-w-[70%] md:max-w-[70%] h-auto border-1 border-b-0 bg-primary-100 border-primary-300 dark:border-primary-200 shadow-xl transform hover:scale-105 transition-transform duration-500 object-contain aspect-[32/36] mx-auto"
             />
           </div>
         </Motion.div>
 
         {/* Content Section */}
         <Motion.div
-          className="w-full md:w-2/3 space-y-4 sm:space-y-6 text-center md:text-left"
+          className="w-full md:w-2/3 space-y-4 sm:space-y-6 text-center md:text-left mt-6 sm:mt-8 md:mt-0"
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -61,11 +61,11 @@ const About = () => {
             a contract web developer, day trader, university instructor, and
             even a sales operations analyst at Dell, where I built internal
             tools and launched a projector product website. I hold an MFA from
-            the University of North Texas and a BA in International Business, a
-            background that blends creativity with business savvy. I'm also
-            passionate about data visualization, automated workflows, and
-            creative coding, and I'm always looking to learn new technologies
-            and bring fresh ideas to my projects.
+            the University of North Texas and a BA in Liberal Studies with a
+            focus on International Business, a background that blends creativity
+            with business savvy. I'm also passionate about data visualization,
+            automated workflows, and creative coding, and I'm always looking to
+            learn new technologies and bring fresh ideas to my projects.
           </p>
         </Motion.div>
       </div>
