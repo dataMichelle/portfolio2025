@@ -98,7 +98,8 @@ const ProjectDetail = () => {
                 <img
                   src={image.url}
                   alt={image.alt}
-                  className="w-full max-w-full h-auto rounded-lg shadow-lg mb-4 md:mb-0 md:mr-4 md:ml-4 sm:w-[600px] sm:h-[450px] md:w-[800px] md:h-[600px]"
+                  className="w-full max-w-full h-auto rounded-lg shadow-lg mb-4 md:mb-0 md:mr-4 md:ml-4 object-contain"
+                  style={{ maxWidth: image.width || '600px', maxHeight: image.height || '450px' }}
                 />
                 <div className="flex-grow">
                   <h4 className="text-md sm:text-lg font-bold text-primary-700 dark:text-primary-100 mb-2">

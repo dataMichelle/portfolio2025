@@ -14,6 +14,16 @@ const textVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4 } },
 };
 
+// Animation variants for highlights
+const highlightVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: 0.6 + Math.min(i, 6) * 0.1 },
+  }),
+};
+
 const About = () => {
   return (
     <section className="min-h-fit px-0 sm:px-8 md:px-14 pt-16 sm:pt-12 sm:mt-16 md:mt-28 md:pt-16 lg:pt-20 pb-16 bg-transparent flex justify-center">
@@ -46,27 +56,118 @@ const About = () => {
           <h1 className="text-3xl sm:text-4xl font-raleway font-bold text-primary-700 dark:!text-primary-50 mb-4 sm:mb-6">
             About Me
           </h1>
+
           {/* Introduction */}
-          <p className="text-base sm:text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed">
-            A little about me... I'm a web developer skilled in HTML, CSS,
-            JavaScript, React, Node.js, and WordPress, with a passion for
-            building responsive, user-friendly websites. I specialize in
-            creating sites optimized for performance and SEO, leveraging tools
-            like Google Analytics and HubSpot, and I thrive on solving complex
-            problems, fueled by curiosity and continuous learning.
+          <p className="text-base sm:text-lg text-neutral-900 dark:text-neutral-100 font-raleway leading-relaxed">
+            I'm a{" "}
+            <Motion.span
+              className="text-primary-700 dark:text-primary-100 font-semibold"
+              variants={highlightVariants}
+              custom={0}
+            >
+              full-stack developer
+            </Motion.span>{" "}
+            focused on building{" "}
+            <Motion.span
+              className="text-accent-100 dark:text-accent-200 font-semibold italic"
+              variants={highlightVariants}
+              custom={1}
+            >
+              fast, accessible, and user-centered
+            </Motion.span>{" "}
+            websites. I specialize in{" "}
+            <Motion.span
+              className="text-accent-100 dark:text-accent-200 font-semibold"
+              variants={highlightVariants}
+              custom={2}
+            >
+              UI/UX design and back-end development
+            </Motion.span>
+            , delivering{" "}
+            <Motion.span
+              className="text-primary-700 dark:text-primary-100 font-semibold"
+              variants={highlightVariants}
+              custom={3}
+            >
+              high-performance solutions
+            </Motion.span>{" "}
+            optimized for{" "}
+            <Motion.span
+              className="text-accent-100 dark:text-accent-200 font-semibold italic"
+              variants={highlightVariants}
+              custom={4}
+            >
+              SEO, usability, and scalability
+            </Motion.span>
+            .
           </p>
-          {/* Aha Moment */}
-          <p className="text-base sm:text-lg text-neutrals-900 dark:text-neutral-100 font-raleway leading-relaxed">
-            My career journey has been anything but traditional: I've worked as
-            a contract web developer, day trader, university instructor, and
-            even a sales operations analyst at Dell, where I built internal
-            tools and launched a projector product website. I hold an MFA from
-            the University of North Texas and a BA in Liberal Studies with a
-            focus on International Business, a background that blends creativity
-            with business savvy. I'm also passionate about data visualization,
-            automated workflows, and creative coding, and I'm always looking to
-            learn new technologies and bring fresh ideas to my projects.
+
+          {/* Career Journey */}
+          <p className="text-base sm:text-lg text-neutral-900 dark:text-neutral-100 font-raleway leading-relaxed">
+            My path to tech wasn't typical: I've worked as a{" "}
+            <Motion.span
+              className="text-primary-700 dark:text-primary-100 font-semibold"
+              variants={highlightVariants}
+              custom={5}
+            >
+              rapid-delivery contract developer
+            </Motion.span>
+            , taught university courses, and built{" "}
+            <Motion.span
+              className="text-primary-700 dark:text-primary-100 font-semibold"
+              variants={highlightVariants}
+              custom={6}
+            >
+              internal tools at Dell
+            </Motion.span>{" "}
+            as a sales operations analyst. That mix of{" "}
+            <Motion.span
+              className="text-accent-100 dark:text-accent-200 font-semibold"
+              variants={highlightVariants}
+              custom={7}
+            >
+              creative problem-solving and business insight
+            </Motion.span>{" "}
+            shaped my approach—{" "}
+            <Motion.span
+              className="text-accent-100 dark:text-accent-200 font-semibold italic"
+              variants={highlightVariants}
+              custom={8}
+            >
+              efficient, curious, and always focused on impact
+            </Motion.span>
+            .
           </p>
+
+          {/* Education & Future */}
+          <p className="text-base sm:text-lg text-neutral-900 dark:text-neutral-100 font-raleway leading-relaxed">
+            I hold an MFA and a BA in Liberal Studies with a focus on international business, and I bring that{" "}
+            <Motion.span
+              className="text-accent-100 dark:text-accent-200 font-semibold"
+              variants={highlightVariants}
+              custom={9}
+            >
+              interdisciplinary mindset
+            </Motion.span>{" "}
+            to everything I build. I'm passionate about{" "}
+            <Motion.span
+              className="text-primary-700 dark:text-primary-100 font-semibold"
+              variants={highlightVariants}
+              custom={10}
+            >
+              performance, automation, and AI integration
+            </Motion.span>
+            —and I'm constantly exploring new tools to{" "}
+            <Motion.span
+              className="text-accent-100 dark:text-accent-200 font-semibold italic"
+              variants={highlightVariants}
+              custom={11}
+            >
+              push development further, faster
+            </Motion.span>
+            .
+          </p>
+
         </Motion.div>
       </div>
     </section>

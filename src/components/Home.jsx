@@ -45,15 +45,15 @@ const Home = () => {
               Welcome
             </Motion.h1>
             <p className="text-xl md:text-2xl text-neutral-900 dark:text-neutral-100 max-w-[640px] mx-auto font-raleway leading-relaxed">
-              I am a front-end developer who crafts{" "}
+              I'm a full-stack developer who creates{" "}
               <Motion.span
                 className="text-accent-100 dark:text-accent-200 font-semibold group-hover:underline"
                 variants={highlightVariants}
                 custom={0}
               >
                 user-friendly
-              </Motion.span>{" "}
-              and{" "}
+              </Motion.span>
+              ,{" "}
               <Motion.span
                 className="text-accent-100 dark:text-accent-200 font-semibold group-hover:underline"
                 variants={highlightVariants}
@@ -68,8 +68,8 @@ const Home = () => {
                 custom={2}
               >
                 React
-              </Motion.span>
-              ,{" "}
+              </Motion.span>{" "}
+              and{" "}
               <Motion.span
                 className="text-primary-500 dark:text-primary-300 font-semibold group-hover:underline"
                 variants={highlightVariants}
@@ -77,15 +77,15 @@ const Home = () => {
               >
                 Tailwind
               </Motion.span>
-              , and{" "}
+              —backed by solid{" "}
               <Motion.span
                 className="text-primary-500 dark:text-primary-300 font-semibold group-hover:underline"
                 variants={highlightVariants}
                 custom={4}
               >
-                Framer Motion
-              </Motion.span>
-              .
+                API and database integration
+              </Motion.span>{" "}
+              for real-world performance.
             </p>
             <div className="flex justify-center gap-6">
               <Motion.div

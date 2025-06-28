@@ -11,8 +11,45 @@ import stayHealthyImg from "../assets/images/stay-healthy-landing.png";
 import stayHealthyReviewsImg from "../assets/images/stay-healthy-reviews.png";
 import stayHealthyBookingImg from "../assets/images/stay-healthy-bookAppt.png";
 import gildedReservation from "../assets/images/gildedReservation.png";
+import SJCAImg from "../assets/images/SJCA_site_portfolio.png"
+import SJCATestimonials from "../assets/images/SJCA_testimonials.png"
 
 export const projectDetails = [
+
+  {
+    projectURL: "SJCA",
+    title: "St. Jude Career Alliance",
+    description: "A comprehensive modernization of the St. Jude Career Alliance ministry website focused on accessibility, SEO optimization, and enhanced user experience.",
+    tags:["Accessibility", "React", "Tailwind CSS"],
+    imageURL: SJCAImg,
+    liveURL: "https://stjudecareeralliance.com/",
+    githubURL: "https://github.com/dataMichelle/sjca",
+    goal: [
+      "I designed the St. Jude Career Alliance website from the ground up after the original site was lost. The client wanted a clean, modern design aligned with their training materials and branding. My focus was on accessibility, clear navigation, and a professional look that supports their mission.."
+    ],
+    process: [
+      "I redesigned the logo and visual identity to align with the organization's brand and ensure a professional, cohesive look.",
+"To improve accessibility and usability, I followed WCAG 2.1 AA standards, implemented semantic HTML, and ensured keyboard and screen reader compatibility.",
+"I used React and Tailwind CSS to build a responsive, accessible layout and replaced cluttered content blocks with structured UI and popups.",
+"I integrated the Google Maps API after feedback revealed many users had difficulty locating the ministry in person.",
+"Throughout development, I prioritized fast load times, SEO best practices, and intuitive navigation for both desktop and mobile users."
+    ],
+    webStack: ["React", "JavaScript", "Tailwind CSS"],
+     additionalImages: [
+      {
+        id: 1,
+        url: SJCATestimonials,
+        caption: "Responsive pages on mobile devices",
+        alt: "Screenshot of the testimonials page optimized for mobile devices.",
+        width: "400px",
+        height: "447px",
+        process: [
+          "The website was designed to be fully responsive and accessible across all device sizes. I ensured proper contrast ratios and readable typography to enhance user experience on mobile devices.",
+        ],
+      },
+    ],
+
+  },
   {
     projectURL: "gilded-plate",
     title: "The Gilded Plate",

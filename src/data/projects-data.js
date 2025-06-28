@@ -2,8 +2,20 @@ import gildedImg from "../assets/images/projectsGilded.png";
 import bayousideImg from "../assets/images/projects-bayouside.png";
 import pizzeriaImg from "../assets/images/projectsPizzeria.png";
 import stayHealthyImg from "../assets/images/stay-healthy-landing.png";
+import SJCADetailImg from "../assets/images/SJCA_project_detail.png"
 
 export const projectsData = [
+{
+  title: "St. Jude Career Alliance",
+  description: "A modern ministry website redesign prioritizing accessibility, SEO optimization, and inclusive design.",
+  tags: ["Accessibility", "React", "JavaScript", "Tailwind CSS"],
+  imageURL: SJCADetailImg,
+  projectURL: "SJCA",
+  liveURL: "https://stjudecareeralliance.com/",
+  githubURL: "https://github.com/dataMichelle/sjca"
+},
+
+
   {
     title: "The Gilded Plate",
     description:

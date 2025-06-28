@@ -22,7 +22,7 @@ const Project = ({
           {description}
         </p>
         <ul className="tags flex flex-wrap gap-2 mt-2">
-          {tags.map((tag, index) => (
+          {tags && tags.map((tag, index) => (
             <li
               className="bg-neutral-900/[0.7] dark:bg-neutral-700/50 px-3 py-1 text-[0.6rem] sm:text-[0.7rem] uppercase tracking-wider text-white rounded-full"
               key={index}
