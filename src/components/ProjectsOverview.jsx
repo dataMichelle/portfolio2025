@@ -14,11 +14,16 @@ const ProjectsOverview = () => {
         keywords="Michelle Salazar projects, React projects, Next.js portfolio, full-stack projects, web development portfolio, accessible websites, modern web applications"
         url="https://portfolio2025.netlify.app/projects"
       />
-      <section className="p-4 sm:p-8 bg-transparent min-h-screen pt-20 sm:pt-28">
+      <section 
+        className="p-4 sm:p-8 bg-transparent min-h-screen pt-20 sm:pt-28"
+        role="main"
+        aria-label="Projects overview"
+        id="main-content"
+      >
       <h1 className="text-3xl sm:text-4xl font-bold text-primary-700 dark:text-primary-300 mb-6 sm:mb-8 text-center">
         My Projects
       </h1>
-      <section>
+      <section aria-label="Projects list">
         <div className="flex flex-col gap-4 sm:gap-8 items-center">
           {projectsData.map((project, index) => (
             <Project

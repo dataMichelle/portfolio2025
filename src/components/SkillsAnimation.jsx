@@ -232,6 +232,8 @@ const SkillsAnimation = () => {
       className={`relative flex flex-col items-center justify-center w-full h-full ${
         isDarkMode ? "skills-animation-dark" : ""
       }`}
+      role="region"
+      aria-label="Technical skills interactive display"
     >
       <h2 className="text-2xl sm:text-3xl font-bold text-primary-700 dark:text-primary-100 mb-6 sm:mb-8">
         Technical Skills
@@ -242,6 +244,8 @@ const SkillsAnimation = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        role="grid"
+        aria-label="Skills grid - hover or focus to learn more about each skill"
       >
         {skills.map((card, index) => (
           <Motion.div
@@ -252,20 +256,30 @@ const SkillsAnimation = () => {
             onClick={(event) => handleCardClick(index, event)}
             onMouseEnter={() => handleCardHover(index)}
             onMouseLeave={handleCardLeave}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                handleCardClick(index, event);
+              }
+            }}
             whileHover={{
               scale: 1.1,
               boxShadow: "0 8px 16px rgba(0, 0, 0, 0.25)",
               transition: { duration: 0.3 },
             }}
+            role="button"
+            tabIndex={0}
+            aria-label={`${card.name} skill - click to learn more`}
+            aria-describedby={selectedCard === index ? `skill-story-${index}` : undefined}
           >
             <div
               className={`w-full h-full ${
                 isDarkMode
                   ? "bg-primary-500 border-0 shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
                   : "bg-primary-100 border-1 border-primary-200 shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
-              } rounded-md flex flex-col items-center justify-center gap-1 sm:gap-2`}
+              } rounded-md flex flex-col items-center justify-center gap-1 sm:gap-2 focus-within:ring-2 focus-within:ring-primary-300`}
             >
-              {card.icon}
+              <span aria-hidden="true">{card.icon}</span>
               <span className="text-xs sm:text-sm font-nunito text-primary-900 dark:text-neutral-100">
                 {card.name}
               </span>
@@ -275,12 +289,15 @@ const SkillsAnimation = () => {
       </Motion.div>
       {selectedCard !== null && (
         <Motion.div
+          id={`skill-story-${selectedCard}`}
           className="absolute w-48 sm:w-64 p-3 sm:p-4 bg-primary-200 border-1 border-primary-500 dark:bg-primary-200 dark:border-primary-500 rounded-md shadow-md text-sm sm:text-base text-neutral-700 dark:text-neutral-100 z-40"
           style={{ top: tooltipPosition.top, left: tooltipPosition.left }}
           initial={{ opacity: 0, scale: 0.8, x: 10 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           exit={{ opacity: 0, scale: 0.8, x: 10 }}
           transition={{ duration: 0.3 }}
+          role="tooltip"
+          aria-live="polite"
         >
           {skills[selectedCard].story}
         </Motion.div>

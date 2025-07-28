@@ -23,50 +23,61 @@ const ProjectDetail = () => {
         image={project.imageURL || "https://portfolio2025.netlify.app/logo.svg"}
         type="article"
       />
-      <section className="p-4 sm:p-8 min-h-screen flex flex-col pt-20 sm:pt-28 gap-2 sm:gap-4 bg-transparent">
+      <main 
+        className="p-4 sm:p-8 min-h-screen flex flex-col pt-20 sm:pt-28 gap-2 sm:gap-4 bg-transparent"
+        id="main-content"
+        role="main"
+        aria-label={`${project.title} project details`}
+      >
       {/* Return Link */}
-      <div className="max-w-6xl mx-auto mb-4 sm:mb-6">
+      <nav className="max-w-6xl mx-auto mb-4 sm:mb-6" aria-label="Breadcrumb">
         <Link
           to="/projects"
-          className="text-accent-300 dark:text-accent-200 hover:text-accent-200 dark:hover:text-accent-200 transition-colors text-sm sm:text-base font-nunito font-medium flex items-center gap-2"
+          className="text-accent-300 dark:text-accent-200 hover:text-accent-200 dark:hover:text-accent-200 transition-colors text-sm sm:text-base font-nunito font-medium flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:rounded"
+          aria-label="Go back to projects overview"
         >
-          <span>←</span> Back to Projects
+          <span aria-hidden="true">←</span> Back to Projects
         </Link>
-      </div>
-      <section className="max-w-6xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-300 text-center mb-4 sm:mb-6">
+      </nav>
+      <header className="max-w-6xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-300 text-center mb-4 sm:mb-6">
           {project.title}
-        </h2>
-      </section>
-      <section className="max-w-6xl mx-auto flex flex-col md:flex-row gap-2 sm:gap-4 md:gap-8 items-center">
+        </h1>
+      </header>
+      <section 
+        className="max-w-6xl mx-auto flex flex-col md:flex-row gap-2 sm:gap-4 md:gap-8 items-center"
+        aria-label="Project overview"
+      >
         <div className="flex-shrink-0 w-full md:w-1/2 relative">
           <img
             src={project.imageURL}
-            alt={project.title}
+            alt={`Screenshot of ${project.title} showing main interface and features`}
             loading="lazy"
             className="w-full h-auto max-w-full object-cover rounded-lg shadow-lg"
           />
-          <div className="flex flex-row justify-end gap-2 sm:gap-4 mt-4">
+          <nav className="flex flex-row justify-end gap-2 sm:gap-4 mt-4" aria-label="Project links">
             <a
               href={project.liveURL}
-              className="text-accent-300 dark:text-accent-100 hover:text-accent-200 dark:hover:text-accent-200 transition-colors text-sm sm:text-base"
+              className="text-accent-300 dark:text-accent-100 hover:text-accent-200 dark:hover:text-accent-200 transition-colors text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary-300 focus:rounded"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`View ${project.title} live website (opens in new tab)`}
             >
               Live Site
             </a>
             <a
               href={project.githubURL}
-              className="text-primary-500 dark:text-primary-100 hover:text-accent-200 dark:hover:text-accent-100 hover:scale-110 transition-all duration-200"
+              className="text-primary-500 dark:text-primary-100 hover:text-accent-200 dark:hover:text-accent-100 hover:scale-110 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:rounded"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`View ${project.title} source code on GitHub (opens in new tab)`}
             >
               <FaGithub className="w-6 h-6 sm:w-8 sm:h-8" />
             </a>
-          </div>
+          </nav>
         </div>
         <div className="flex-grow">
-          <p className="text-sm sm:text-base md:text-lg text-neutral-900 dark:text-neutral-300">
+          <div className="text-sm sm:text-base md:text-lg text-neutral-900 dark:text-neutral-300" role="region" aria-label="Project goals">
             {project.goal?.map((goal, index) => (
               <p
                 key={index}
@@ -75,7 +86,7 @@ const ProjectDetail = () => {
                 {goal}
               </p>
             ))}
-          </p>
+          </div>
         </div>
       </section>
       <section className="max-w-6xl mx-auto">
@@ -133,7 +144,7 @@ const ProjectDetail = () => {
           </div>
         )}
       </section>
-    </section>
+    </main>
     </>
   );
 };

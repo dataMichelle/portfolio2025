@@ -37,7 +37,12 @@ const Home = () => {
         keywords="Michelle Salazar portfolio, full-stack developer, React developer, Next.js, web developer portfolio, accessible websites, high-performance websites"
         url="https://portfolio2025.netlify.app/"
       />
-      <section className="min-h-screen px-6 md:px-14 pt-28 md:pt-32 pb-24 bg-transparent flex flex-col items-center">
+      <section 
+        id="main-content"
+        className="min-h-screen px-6 md:px-14 pt-28 md:pt-32 pb-24 bg-transparent flex flex-col items-center"
+        role="main"
+        aria-label="Home page content"
+      >
         <div className="flex flex-col items-center gap-6">
           <Motion.div
             className="max-w-[640px] mx-auto space-y-6 text-center"

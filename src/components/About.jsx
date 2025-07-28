@@ -34,7 +34,12 @@ const About = () => {
         keywords="about Michelle Salazar, full-stack developer background, React developer, web accessibility expert, Dell experience, MFA developer"
         url="https://portfolio2025.netlify.app/about"
       />
-      <section className="min-h-fit px-0 sm:px-8 md:px-14 pt-16 sm:pt-12 sm:mt-16 md:mt-28 md:pt-16 lg:pt-20 pb-16 bg-transparent flex justify-center">
+      <section 
+        className="min-h-fit px-0 sm:px-8 md:px-14 pt-16 sm:pt-12 sm:mt-16 md:mt-28 md:pt-16 lg:pt-20 pb-16 bg-transparent flex justify-center"
+        role="main"
+        aria-label="About Michelle Salazar"
+        id="main-content"
+      >
       <div className="max-w-7xl w-full flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center md:items-start mx-auto">
         {/* Profile Image */}
         <Motion.div
