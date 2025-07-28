@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://portfolio2025.netlify.app/sitemap.xml
+
+# Block access to sensitive areas (if any)
+Disallow: /config/
+Disallow: /server/
+Disallow: /.netlify/
+
+# Allow search engines to crawl everything else
+Allow: /about
+Allow: /projects
+Allow: /contact
+Allow: /project/
+
+# Crawl-delay (optional - helps prevent overwhelming server)
+Crawl-delay: 1

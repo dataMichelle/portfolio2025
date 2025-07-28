@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useContactForm from "../hooks/useContactForm";
+import SEO from "./SEO";
 
 const Contact = () => {
   const {
@@ -23,10 +24,17 @@ const Contact = () => {
   }, [successMessage, errorMessage]);
 
   return (
-    <div
-      id="contact"
-      className="flex justify-center min-h-fit bg-transparent text-neutral-900 dark:text-primary-100 pt-12 sm:pt-16 md:pt-28"
-    >
+    <>
+      <SEO
+        title="Contact Michelle Salazar - Full-Stack Developer"
+        description="Get in touch with Michelle Salazar for web development projects, collaborations, or consulting. Specializing in React, Next.js, and accessible web solutions."
+        keywords="contact Michelle Salazar, hire full-stack developer, React developer contact, web development services, freelance developer, project collaboration"
+        url="https://portfolio2025.netlify.app/contact"
+      />
+      <div
+        id="contact"
+        className="flex justify-center min-h-fit bg-transparent text-neutral-900 dark:text-primary-100 pt-12 sm:pt-16 md:pt-28"
+      >
       <div className="px-4 sm:px-8 pb-0 pt-4 sm:pt-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-4 sm:mx-6 md:mx-auto mt-4 sm:mt-6 md:mt-0 mb-0 border-none bg-primary-500 dark:bg-primary-500">
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold font-nunito text-neutral-50 dark:text-primary-100 mb-2 sm:mb-3 text-center">
           Get in Touch
@@ -116,6 +124,7 @@ const Contact = () => {
         <ToastContainer position="top-center" autoClose={3000} />
       </div>
     </div>
+    </>
   );
 };
 

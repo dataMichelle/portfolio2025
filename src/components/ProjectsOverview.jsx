@@ -3,10 +3,18 @@ import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import { projectsData } from "../data/projects-data.js";
 import Project from "./Project";
+import SEO from "./SEO";
 
 const ProjectsOverview = () => {
   return (
-    <section className="p-4 sm:p-8 bg-transparent min-h-screen pt-20 sm:pt-28">
+    <>
+      <SEO
+        title="Projects - Michelle Salazar Portfolio"
+        description="Explore Michelle Salazar's full-stack development projects including React applications, Next.js websites, accessibility-focused designs, and modern web solutions."
+        keywords="Michelle Salazar projects, React projects, Next.js portfolio, full-stack projects, web development portfolio, accessible websites, modern web applications"
+        url="https://portfolio2025.netlify.app/projects"
+      />
+      <section className="p-4 sm:p-8 bg-transparent min-h-screen pt-20 sm:pt-28">
       <h1 className="text-3xl sm:text-4xl font-bold text-primary-700 dark:text-primary-300 mb-6 sm:mb-8 text-center">
         My Projects
       </h1>
@@ -27,6 +35,7 @@ const ProjectsOverview = () => {
         </div>
       </section>
     </section>
+    </>
   );
 };
 

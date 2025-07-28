@@ -59,7 +59,8 @@ const Project = ({
       {/* Image */}
       <img
         src={imageURL}
-        alt={title}
+        alt={`${title} - Screenshot of web application showing main features and design`}
+        loading="lazy"
         className="relative sm:absolute top-0 sm:top-8 w-full sm:w-[28.25rem] h-48 sm:h-[20rem] object-cover rounded-t-lg sm:rounded-t-lg shadow-2xl transition sm:-right-40 sm:group-hover:-translate-x-3 sm:group-hover:scale-[1.04] sm:group-hover:translate-y-3 sm:group-hover:-rotate-2 sm:group-even:right-[initial] sm:group-even:-left-40 sm:group-even:group-hover:translate-x-3 sm:group-even:group-hover:rotate-2"
         quality={95}
       />

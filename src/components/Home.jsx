@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import SkillsAnimation from "./SkillsAnimation";
+import SEO from "./SEO";
 import { useDarkMode } from "../../context/DarkModeContext";
 
 // Animation variants for header
@@ -30,6 +31,12 @@ const Home = () => {
 
   return (
     <>
+      <SEO
+        title="Michelle Salazar - Full-Stack Developer | Fast, Accessible Web Solutions"
+        description="Welcome to Michelle Salazar's portfolio. Full-stack developer specializing in high-performance, accessible websites using React, Next.js, and modern web technologies."
+        keywords="Michelle Salazar portfolio, full-stack developer, React developer, Next.js, web developer portfolio, accessible websites, high-performance websites"
+        url="https://portfolio2025.netlify.app/"
+      />
       <section className="min-h-screen px-6 md:px-14 pt-28 md:pt-32 pb-24 bg-transparent flex flex-col items-center">
         <div className="flex flex-col items-center gap-6">
           <Motion.div

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion as Motion } from "framer-motion";
 import profileImg from "../assets/images/profilePic6.png";
+import SEO from "./SEO";
 
 // Animation variants for portrait
 const portraitVariants = {
@@ -26,7 +27,14 @@ const highlightVariants = {
 
 const About = () => {
   return (
-    <section className="min-h-fit px-0 sm:px-8 md:px-14 pt-16 sm:pt-12 sm:mt-16 md:mt-28 md:pt-16 lg:pt-20 pb-16 bg-transparent flex justify-center">
+    <>
+      <SEO
+        title="About Michelle Salazar - Full-Stack Developer"
+        description="Learn about Michelle Salazar, a full-stack developer with expertise in React, Next.js, and accessible web development. Former Dell analyst and university instructor with MFA and business background."
+        keywords="about Michelle Salazar, full-stack developer background, React developer, web accessibility expert, Dell experience, MFA developer"
+        url="https://portfolio2025.netlify.app/about"
+      />
+      <section className="min-h-fit px-0 sm:px-8 md:px-14 pt-16 sm:pt-12 sm:mt-16 md:mt-28 md:pt-16 lg:pt-20 pb-16 bg-transparent flex justify-center">
       <div className="max-w-7xl w-full flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center md:items-start mx-auto">
         {/* Profile Image */}
         <Motion.div
@@ -39,7 +47,7 @@ const About = () => {
             <div className="absolute -inset-4 sm:-inset-6 bg-primary-300 dark:bg-primary-200 opacity-20 rounded-t-full blur-xl"></div>
             <img
               src={profileImg}
-              alt="Michelle Salazar"
+              alt="Michelle Salazar, Full-Stack Developer - Professional headshot"
               className="relative rounded-t-full max-w-[80%] sm:max-w-[70%] md:max-w-[70%] h-auto border-1 border-b-0 bg-primary-100 border-primary-300 dark:border-primary-200 shadow-xl transform hover:scale-105 transition-transform duration-500 object-contain aspect-[32/36] mx-auto"
             />
           </div>
@@ -171,6 +179,7 @@ const About = () => {
         </Motion.div>
       </div>
     </section>
+    </>
   );
 };
 

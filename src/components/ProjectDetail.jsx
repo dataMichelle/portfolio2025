@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import { projectDetails } from "../data/project-details";
 import { FaGithub } from "react-icons/fa";
+import SEO from "./SEO";
 
 const ProjectDetail = () => {
   const { projectURL } = useParams();
@@ -13,7 +14,16 @@ const ProjectDetail = () => {
   }
 
   return (
-    <section className="p-4 sm:p-8 min-h-screen flex flex-col pt-20 sm:pt-28 gap-2 sm:gap-4 bg-transparent">
+    <>
+      <SEO
+        title={`${project.title} - Project Details | Michelle Salazar`}
+        description={project.description || `Explore ${project.title}, a full-stack development project by Michelle Salazar showcasing modern web technologies and best practices.`}
+        keywords={`${project.title}, ${project.tags?.join(', ')}, Michelle Salazar project, full-stack development, web application`}
+        url={`https://portfolio2025.netlify.app/project/${project.projectURL}`}
+        image={project.imageURL || "https://portfolio2025.netlify.app/logo.svg"}
+        type="article"
+      />
+      <section className="p-4 sm:p-8 min-h-screen flex flex-col pt-20 sm:pt-28 gap-2 sm:gap-4 bg-transparent">
       {/* Return Link */}
       <div className="max-w-6xl mx-auto mb-4 sm:mb-6">
         <Link
@@ -33,6 +43,7 @@ const ProjectDetail = () => {
           <img
             src={project.imageURL}
             alt={project.title}
+            loading="lazy"
             className="w-full h-auto max-w-full object-cover rounded-lg shadow-lg"
           />
           <div className="flex flex-row justify-end gap-2 sm:gap-4 mt-4">
@@ -98,6 +109,7 @@ const ProjectDetail = () => {
                 <img
                   src={image.url}
                   alt={image.alt}
+                  loading="lazy"
                   className="w-full max-w-full h-auto rounded-lg shadow-lg mb-4 md:mb-0 md:mr-4 md:ml-4 object-contain"
                   style={{ maxWidth: image.width || '600px', maxHeight: image.height || '450px' }}
                 />
@@ -122,6 +134,7 @@ const ProjectDetail = () => {
         )}
       </section>
     </section>
+    </>
   );
 };
 
